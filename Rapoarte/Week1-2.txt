@@ -1,25 +1,37 @@
 Cretu Bogdan si Minut Mihai
 
-Ne-am decis asupra tipului de joc si mecanicilor principale:
-Hook and Shoot
+Ne-am decis asupra tipului de joc si mecanicilor principale: Hook and Shoot
+Genul jocului ales de noi: platformer, souls-like
 
-Ne-am facut brain storming cu idei pentru elementele jocului, posibile tematici ale jocului
-Si am enumerat elementele importante care trebuie sa le avem in vedere
+Acesta implica: 
+O mica drona care foloseste un tun pentru deplasare si atac,
+reculul tragerii cu tunul determinand momentumul pentru deplasare,
+cu diferite optiuni de modificare interactive de catre jucator,
+si un hook care se va putea folosi pentru a manipula deplasarea dronei.
+
+De fiecare data cand jucatorul elimina un inamic acesta va primi anumite resuse, care pot fi folosite pentru upgrades
+HP, ATTACK, RANGE de exemplu.
+
+Interactiunea cu jucatorul:
+Jucatorul va fi nevoit cu ajutorul tunului si a hook-ului sa se deplaseze prin nivel/e pentru a bate bossul.
+Actiunile gresite ale jucatorului vor aduce consecinte significante asupra experientei acestuia.
+
+
+In plan avem niste inamici ranged, si pentru final un boss.
+Pentru nivele planuim sa facem un nivel cu inamici si un bossfight la final, creeind si un tileset pentru acesta.
+Din lipsa timpului pentru creat content, vom face primul nivel replayable prin diferite metode.
+
 
 Ne-am decis aplicatiile care le vom utiliza, acestea fiind
 Godot - game engine
 Aseprite si Krita - pentru creerea frame-urilor animatiilor si designul elementelor grafice in stil 8-bit
 beepbox -elemente audio
 
+
 Ne-am decis un Roadmap pentru a organiza activitatea saptamanala in 14 parti cu obirectivul de a implementa minim
 elementele din roadmap in fiecare saptamana
 
-Genul jocului ales de noi: platformer, souls-like
 
-Acesta implica: O mica drona care foloseste un tun pentru deplasare si atac, reculul tracerii cu tunul determinand momentum pentru deplasare, cu diferite optiuni de modificare de catre jucator,
- si un hook care se va putea folosi pentru a manipula deplasarea dronei.
 
-De fiecare data cand jucatorul elimina un inamic acesta va rpimi anumite resuse, care pot fi folosite pentru upgrades
-HP, ATTACK, RANGE de exemplu
 
-In plan avem niste inamici ranged, si pentru final un boss, pentru nivele planuim sa facem un nivel cu inamici si un bossfight la final, creeind si un tileset pentru acesta.
+
