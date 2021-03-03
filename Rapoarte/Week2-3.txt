@@ -1,0 +1,23 @@
+Raport saptamana 2-3
+
+Cretu Bogdan si Minut Mihai
+
+Minut Mihai
+Am creat obiectele de baza initiale: Un nivel dreptunghiular de testare, un obiect player cu scriptul aferent, un obiect Cannonball cu scriptul aferent.
+
+Am creat functii de scalare a valorilor pentru diferite variabile legate player, cannonball si lume.
+
+Cretu Bogdan
+Am creat niste tilemap-uri de baza folosind png-uri create in Krita si am creat un Sandbox pentru experimentarea movementului.
+
+Am imbunatatit semnalele cannonball-ului pentru a se dealoca la momentul potrivit.
+
+
+Comun:
+In general am vorbit pe discord pentru a nu lucra simultan asupra acelorasi resurse, precum si pentru a putea lua deciziile de comun acord rapid.
+Am decis asupra functiilor principale de movement in cadrul jocului si am implementat elementele de baza necesare pentru acestea.
+
+In prima faza decizia luata a fost sa folosim un dreptunghi pentru experimente, cu un player si un cannonball ca obiecte necesare.
+
+Am creat un sistem de functii de baza pe care am inceput sa il extindem pentru fiecare obiect, pe masura ce experimentam diferite
+valori pentru diferite functii fiecare am recomandat schimbari pana am ajuns la un consens legat de movement-ul initial al caracterului.

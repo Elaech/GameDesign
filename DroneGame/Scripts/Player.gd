@@ -7,9 +7,15 @@ var MAX_SPEED = 100
 var CANNON_FORCE = 60
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
+var up_motion_multi = 1.25
+var down_motion_multi = 0.5
+var left_motion_multi = 1.25
+var right_motion_multi = 1.25
 var motion = Vector2.ZERO
 var propulsion_direction = Vector2.UP
 var cannon_active = false
+var cannon_damage = 10
+var cannonball_scale = 2
 const CANNONBALL_RESOURCE =preload("res://WorldObjects/Cannonball.tscn")
 onready var cannon_timer = get_node("CannonTimer")
 onready var cannon_switch_timer = get_node("CannonSwitchTimer")
@@ -28,14 +34,8 @@ func _physics_process(delta):
 			cannon_active = true
 		cannon_switch_timer.start(cannon_switch_time)
 			
-	if Input.is_key_pressed(KEY_A):
-		propulsion_direction = Vector2.RIGHT
-	elif Input.is_key_pressed(KEY_D):
-		propulsion_direction = Vector2.LEFT
-	elif Input.is_key_pressed(KEY_S):
-		propulsion_direction = Vector2.UP
-	elif Input.is_key_pressed(KEY_W):
-		propulsion_direction= Vector2.DOWN
+	check_change_direction()
+	check_change_cannonmode()
 	motion.y += GRAVITY * delta
 	motion.x = lerp(motion.x,0,FRICTION)
 	motion.y = lerp(motion.y,0,FRICTION)
@@ -53,14 +53,20 @@ func adjust_direction_motion(direction):
 	var end_motion = direction
 	match direction:
 		Vector2.DOWN:
-			end_motion *= 0.5
+			end_motion *= down_motion_multi
 		Vector2.UP:
-			end_motion *= 1.25
+			end_motion *= up_motion_multi
+		Vector2.LEFT:
+			end_motion *= left_motion_multi
+		Vector2.RIGHT:
+			end_motion *= right_motion_multi
 	return end_motion * CANNON_FORCE
 	
 func shoot_cannonball():
 	var cannonball_instance = CANNONBALL_RESOURCE.instance()
 	cannonball_instance.direction = -propulsion_direction
+	cannonball_instance.damage =  cannon_damage
+	cannonball_instance.change_scale(cannonball_scale)
 	cannonball_instance.position = self.position - propulsion_direction * 3
 	self.get_parent().add_child(cannonball_instance)
 	
@@ -71,3 +77,51 @@ func _on_Timer_timeout():
 
 func _on_CannonSwitchTimer_timeout():
 	cannon_switch_timer.stop()
+
+func check_change_direction():
+	if Input.is_key_pressed(KEY_A):
+		propulsion_direction = Vector2.RIGHT
+	elif Input.is_key_pressed(KEY_D):
+		propulsion_direction = Vector2.LEFT
+	elif Input.is_key_pressed(KEY_S):
+		propulsion_direction = Vector2.UP
+	elif Input.is_key_pressed(KEY_W):
+		propulsion_direction= Vector2.DOWN
+
+func check_change_cannonmode():
+	if Input.is_key_pressed(KEY_1):
+		MAX_SPEED = 40
+		CANNON_FORCE = 20
+		GRAVITY = 40
+		next_cannon_timer_wait_time = 0.3
+		cannon_damage = 3
+		up_motion_multi = 1
+		down_motion_multi = 0.4
+		left_motion_multi = 1.5
+		right_motion_multi = 1.5
+		cannonball_scale = 1
+		cannon_switch_time = 0.2
+	elif Input.is_key_pressed(KEY_2):
+		MAX_SPEED = 180
+		CANNON_FORCE = 80
+		GRAVITY = 80
+		next_cannon_timer_wait_time = 0.5
+		cannon_damage = 10
+		up_motion_multi = 1.25
+		down_motion_multi = 0.5
+		left_motion_multi = 1.25
+		right_motion_multi = 1.25
+		cannonball_scale = 2
+		cannon_switch_time = 1
+	elif Input.is_key_pressed(KEY_3):
+		MAX_SPEED = 250
+		CANNON_FORCE = 200
+		GRAVITY = 120
+		next_cannon_timer_wait_time = 0.7
+		cannon_damage = 30
+		up_motion_multi = 1.25
+		down_motion_multi = 0.5
+		left_motion_multi = 1.25
+		right_motion_multi = 1.25
+		cannonball_scale = 3
+		cannon_switch_time = 1
