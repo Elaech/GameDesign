@@ -16,6 +16,7 @@ var propulsion_direction = Vector2.UP
 var cannon_active = false
 var cannon_damage = 10
 var cannonball_scale = 2
+var cannon_mode = 2
 const CANNONBALL_RESOURCE =preload("res://WorldObjects/Cannonball.tscn")
 onready var cannon_timer = get_node("CannonTimer")
 onready var cannon_switch_timer = get_node("CannonSwitchTimer")
@@ -30,8 +31,11 @@ func _physics_process(delta):
 	if Input.is_key_pressed(KEY_R) and cannon_switch_timer.is_stopped():
 		if cannon_active:
 			cannon_active = false
+			GRAVITY = 80
+			MAX_SPEED = 180
 		else:
 			cannon_active = true
+			load_cannon(cannon_mode)
 		cannon_switch_timer.start(cannon_switch_time)
 			
 	check_change_direction()
@@ -90,6 +94,23 @@ func check_change_direction():
 
 func check_change_cannonmode():
 	if Input.is_key_pressed(KEY_1):
+		if cannon_active:
+			load_cannon(1)
+		else:
+			cannon_mode = 1
+	elif Input.is_key_pressed(KEY_2):
+		if cannon_active:
+			load_cannon(2)
+		else:
+			cannon_mode = 2
+	elif Input.is_key_pressed(KEY_3):
+		if cannon_active:
+			load_cannon(2)
+		else:
+			cannon_mode = 2
+
+func load_cannon(index):
+	if index == 1:
 		MAX_SPEED = 40
 		CANNON_FORCE = 20
 		GRAVITY = 40
@@ -101,7 +122,8 @@ func check_change_cannonmode():
 		right_motion_multi = 1.5
 		cannonball_scale = 1
 		cannon_switch_time = 0.2
-	elif Input.is_key_pressed(KEY_2):
+		cannon_mode = 1
+	elif index == 2:
 		MAX_SPEED = 180
 		CANNON_FORCE = 80
 		GRAVITY = 80
@@ -113,7 +135,8 @@ func check_change_cannonmode():
 		right_motion_multi = 1.25
 		cannonball_scale = 2
 		cannon_switch_time = 1
-	elif Input.is_key_pressed(KEY_3):
+		cannon_mode = 2
+	elif index ==3:
 		MAX_SPEED = 250
 		CANNON_FORCE = 200
 		GRAVITY = 120
@@ -125,3 +148,4 @@ func check_change_cannonmode():
 		right_motion_multi = 1.25
 		cannonball_scale = 3
 		cannon_switch_time = 1
+		cannon_mode = 3
