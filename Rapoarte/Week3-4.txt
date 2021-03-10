@@ -1,0 +1,13 @@
+Cretu Bogdan si Minut Mihai
+Comun :
+Decidere Tematica grafica jos, si culori pentru desenarea primelor variante de sprite-uri
+
+Minut Mihai:
+Design Tileset Jungla cu variante de combinare a tile-urilor orice directie
+Design Tileset Subteran cu variante de combinare a tile-urilor orice directie
+Adaptare De noi sprite-uri pentru Drona si gloante
+
+Cretu Bogdan:
+Design Sprite Pentru Drona cu tun in cele 4 directii de tragere
+Design Gloante in 3 dimensiuni
+Design Nivel cu noile Tileset-uri Jungla si Subteran

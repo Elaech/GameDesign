@@ -15,13 +15,13 @@ var motion = Vector2.ZERO
 var propulsion_direction = Vector2.UP
 var cannon_active = false
 var cannon_damage = 10
-var cannonball_scale = 2
 var cannon_mode = 2
+var cannonball_speed = 80
 const CANNONBALL_RESOURCE =preload("res://WorldObjects/Cannonball.tscn")
 onready var cannon_timer = get_node("CannonTimer")
 onready var cannon_switch_timer = get_node("CannonSwitchTimer")
 onready var shooting_point = get_node("ShootingPoint")
-
+onready var player_sprite = get_node("Sprite")
 
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
@@ -70,9 +70,11 @@ func shoot_cannonball():
 	var cannonball_instance = CANNONBALL_RESOURCE.instance()
 	cannonball_instance.direction = -propulsion_direction
 	cannonball_instance.damage =  cannon_damage
-	cannonball_instance.change_scale(cannonball_scale)
+	cannonball_instance.cannonball_speed = cannonball_speed
 	cannonball_instance.position = self.position - propulsion_direction * 3
 	self.get_parent().add_child(cannonball_instance)
+	cannonball_instance.change_look(cannon_mode)
+	
 	
 func _on_Timer_timeout():
 	shoot_cannon()
@@ -84,12 +86,16 @@ func _on_CannonSwitchTimer_timeout():
 
 func check_change_direction():
 	if Input.is_key_pressed(KEY_A):
+		player_watches(Vector2.RIGHT)
 		propulsion_direction = Vector2.RIGHT
 	elif Input.is_key_pressed(KEY_D):
+		player_watches(Vector2.LEFT)
 		propulsion_direction = Vector2.LEFT
 	elif Input.is_key_pressed(KEY_S):
+		player_watches(Vector2.UP)
 		propulsion_direction = Vector2.UP
 	elif Input.is_key_pressed(KEY_W):
+		player_watches(Vector2.DOWN)
 		propulsion_direction= Vector2.DOWN
 
 func check_change_cannonmode():
@@ -105,9 +111,9 @@ func check_change_cannonmode():
 			cannon_mode = 2
 	elif Input.is_key_pressed(KEY_3):
 		if cannon_active:
-			load_cannon(2)
+			load_cannon(3)
 		else:
-			cannon_mode = 2
+			cannon_mode = 3
 
 func load_cannon(index):
 	if index == 1:
@@ -120,9 +126,9 @@ func load_cannon(index):
 		down_motion_multi = 0.4
 		left_motion_multi = 1.5
 		right_motion_multi = 1.5
-		cannonball_scale = 1
 		cannon_switch_time = 0.2
 		cannon_mode = 1
+		cannonball_speed = 60
 	elif index == 2:
 		MAX_SPEED = 180
 		CANNON_FORCE = 80
@@ -133,9 +139,9 @@ func load_cannon(index):
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25
 		right_motion_multi = 1.25
-		cannonball_scale = 2
 		cannon_switch_time = 1
 		cannon_mode = 2
+		cannonball_speed = 80
 	elif index ==3:
 		MAX_SPEED = 250
 		CANNON_FORCE = 200
@@ -146,6 +152,17 @@ func load_cannon(index):
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25
 		right_motion_multi = 1.25
-		cannonball_scale = 3
 		cannon_switch_time = 1
 		cannon_mode = 3
+		cannonball_speed = 120
+		
+func player_watches(direction):
+	match direction:
+		Vector2.DOWN:
+			player_sprite.frame = 3
+		Vector2.UP:
+			player_sprite.frame = 2
+		Vector2.LEFT:
+			player_sprite.frame = 1
+		Vector2.RIGHT:
+			player_sprite.frame = 0
