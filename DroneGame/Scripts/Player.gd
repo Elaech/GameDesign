@@ -1,10 +1,12 @@
 # Player.gd
 extends KinematicBody2D
 
+var LIFE = 5
 var FRICTION = 0.03
 var GRAVITY = 80
 var MAX_SPEED = 100
 var CANNON_FORCE = 60
+var hurtbox_disable_time = 0.3
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
 var up_motion_multi = 1.25
@@ -22,7 +24,7 @@ onready var cannon_timer = get_node("CannonTimer")
 onready var cannon_switch_timer = get_node("CannonSwitchTimer")
 onready var shooting_point = get_node("ShootingPoint")
 onready var player_sprite = get_node("Sprite")
-
+onready var hurtbox_timer = get_node("Hurtbox/HurtboxTimer")
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
 
@@ -166,3 +168,28 @@ func player_watches(direction):
 			player_sprite.frame = 1
 		Vector2.RIGHT:
 			player_sprite.frame = 0
+			
+func take_damage(damage):
+	if hurtbox_timer.is_stopped():
+		LIFE =LIFE -damage
+		if LIFE <= 0:
+			queue_free()
+		else:
+			hurtbox_timer.start(hurtbox_disable_time)
+			player_sprite.modulate = Color(1,1,1,0.5)
+
+
+func _on_Hurtbox_area_entered(area):
+	print("Here")
+	if area.has_method("get_damage"):
+		take_damage(area.get_damage())
+
+
+func _on_HurtboxTimer_timeout():
+	player_sprite.modulate = Color(1,1,1,1)
+
+
+func _on_Hurtbox_body_entered(body):
+	print("Here")
+	if body.has_method("get_damage"):
+		take_damage(body.get_damage())
