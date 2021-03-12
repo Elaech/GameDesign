@@ -25,6 +25,9 @@ onready var cannon_switch_timer = get_node("CannonSwitchTimer")
 onready var shooting_point = get_node("ShootingPoint")
 onready var player_sprite = get_node("Sprite")
 onready var hurtbox_timer = get_node("Hurtbox/HurtboxTimer")
+onready var camera=  get_node("Camera2D")
+onready var hurtbox_collision =  get_node("Hurtbox/CollisionShape2D")
+onready var hurtbox = get_node("Hurtbox")
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
 
@@ -172,24 +175,34 @@ func player_watches(direction):
 func take_damage(damage):
 	if hurtbox_timer.is_stopped():
 		LIFE =LIFE -damage
+		print("Life is",LIFE)
 		if LIFE <= 0:
+			detach_camera()
 			queue_free()
 		else:
+			set_deferred("hurtbox.monitorable", false)
 			hurtbox_timer.start(hurtbox_disable_time)
 			player_sprite.modulate = Color(1,1,1,0.5)
 
 
+
+func detach_camera():
+	self.remove_child(camera)
+	get_parent().add_child(camera)
+	camera.global_position = global_position
+
 func _on_Hurtbox_area_entered(area):
-	print("Here")
 	if area.has_method("get_damage"):
 		take_damage(area.get_damage())
 
 
 func _on_HurtboxTimer_timeout():
+	hurtbox.monitorable = true
+	hurtbox_timer.stop()
 	player_sprite.modulate = Color(1,1,1,1)
+	
 
 
 func _on_Hurtbox_body_entered(body):
-	print("Here")
 	if body.has_method("get_damage"):
 		take_damage(body.get_damage())

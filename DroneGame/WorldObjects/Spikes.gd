@@ -1,6 +1,6 @@
-extends TileMap
+extends StaticBody2D
 
 
 
 func get_damage():
-	return 10
+	return 1
