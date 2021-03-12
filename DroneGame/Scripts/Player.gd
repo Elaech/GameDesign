@@ -6,7 +6,7 @@ var FRICTION = 0.03
 var GRAVITY = 80
 var MAX_SPEED = 100
 var CANNON_FORCE = 60
-var hurtbox_disable_time = 0.3
+var hurtbox_disable_time = 0.5
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
 var up_motion_multi = 1.25
@@ -19,6 +19,7 @@ var cannon_active = false
 var cannon_damage = 10
 var cannon_mode = 2
 var cannonball_speed = 80
+var last_damaging_areas = []
 const CANNONBALL_RESOURCE =preload("res://WorldObjects/Cannonball.tscn")
 onready var cannon_timer = get_node("CannonTimer")
 onready var cannon_switch_timer = get_node("CannonSwitchTimer")
@@ -175,12 +176,12 @@ func player_watches(direction):
 func take_damage(damage):
 	if hurtbox_timer.is_stopped():
 		LIFE =LIFE -damage
-		print("Life is",LIFE)
+		print("Life is ",LIFE)
 		if LIFE <= 0:
 			detach_camera()
 			queue_free()
 		else:
-			set_deferred("hurtbox.monitorable", false)
+			set_deferred("hurtbox.monitoring", false)
 			hurtbox_timer.start(hurtbox_disable_time)
 			player_sprite.modulate = Color(1,1,1,0.5)
 
@@ -193,16 +194,16 @@ func detach_camera():
 
 func _on_Hurtbox_area_entered(area):
 	if area.has_method("get_damage"):
+		last_damaging_areas.append(area)
 		take_damage(area.get_damage())
 
 
 func _on_HurtboxTimer_timeout():
-	hurtbox.monitorable = true
+	hurtbox.monitoring = true
 	hurtbox_timer.stop()
 	player_sprite.modulate = Color(1,1,1,1)
-	
-
-
-func _on_Hurtbox_body_entered(body):
-	if body.has_method("get_damage"):
-		take_damage(body.get_damage())
+	for area in hurtbox.get_overlapping_areas():
+		if area in last_damaging_areas:
+			take_damage(area.get_damage())
+			return
+	last_damaging_areas.clear()
