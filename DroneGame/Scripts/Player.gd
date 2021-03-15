@@ -183,7 +183,7 @@ func take_damage(damage):
 		else:
 			set_deferred("hurtbox.monitoring", false)
 			hurtbox_timer.start(hurtbox_disable_time)
-			player_sprite.modulate = Color(1,1,1,0.5)
+			player_sprite.modulate = Color(10.0,0,0,1.0)
 
 
 
@@ -207,3 +207,10 @@ func _on_HurtboxTimer_timeout():
 			take_damage(area.get_damage())
 			return
 	last_damaging_areas.clear()
+
+
+func _on_Hurtbox_body_entered(body):
+	print("here")
+	if body.has_method("get_damage"):
+		last_damaging_areas.append(body)
+		take_damage(body.get_damage())
