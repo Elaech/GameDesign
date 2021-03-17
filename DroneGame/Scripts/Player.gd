@@ -1,12 +1,13 @@
 # Player.gd
 extends KinematicBody2D
 
-var LIFE = 5
+var MAX_LIFE = 500
+var LIFE = 500
 var FRICTION = 0.03
 var GRAVITY = 80
 var MAX_SPEED = 100
 var CANNON_FORCE = 60
-var hurtbox_disable_time = 0.5
+var hurtbox_disable_time = 5
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
 var up_motion_multi = 1.25
@@ -29,9 +30,11 @@ onready var hurtbox_timer = get_node("Hurtbox/HurtboxTimer")
 onready var camera=  get_node("Camera2D")
 onready var hurtbox_collision =  get_node("Hurtbox/CollisionShape2D")
 onready var hurtbox = get_node("Hurtbox")
+onready var healthbar = get_node("Camera2D/CanvasLayer/Healthbar")
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
-
+	healthbar.update_max_health(MAX_LIFE)
+	healthbar.update_health(LIFE)
 
 func _physics_process(delta):
 	if Input.is_key_pressed(KEY_R) and cannon_switch_timer.is_stopped():
@@ -176,15 +179,26 @@ func player_watches(direction):
 func take_damage(damage):
 	if hurtbox_timer.is_stopped():
 		LIFE =LIFE -damage
-		print("Life is ",LIFE)
+		healthbar.update_health(LIFE)
 		if LIFE <= 0:
 			detach_camera()
+			healthbar.destroy()
 			queue_free()
 		else:
 			set_deferred("hurtbox.monitoring", false)
 			hurtbox_timer.start(hurtbox_disable_time)
-			player_sprite.modulate = Color(10.0,0,0,1.0)
-
+			var aux_timer = Timer.new()
+			self.add_child(aux_timer)
+			var colored = true
+			while not hurtbox_timer.is_stopped():
+				if colored:
+					player_sprite.modulate = Color(10.0,0,0,1.0)
+				else:
+					player_sprite.modulate = Color(1,1,1,1)
+				aux_timer.start(hurtbox_timer.time_left/5)
+				yield(aux_timer,"timeout")
+				print("here")
+			aux_timer.queue_free()
 
 
 func detach_camera():
