@@ -7,7 +7,7 @@ var FRICTION = 0.03
 var GRAVITY = 80
 var MAX_SPEED = 100
 var CANNON_FORCE = 60
-var hurtbox_disable_time = 5
+var hurtbox_disable_time = 1
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
 var up_motion_multi = 1.25
@@ -30,7 +30,7 @@ onready var hurtbox_timer = get_node("Hurtbox/HurtboxTimer")
 onready var camera=  get_node("Camera2D")
 onready var hurtbox_collision =  get_node("Hurtbox/CollisionShape2D")
 onready var hurtbox = get_node("Hurtbox")
-onready var healthbar = get_node("Camera2D/CanvasLayer/Healthbar")
+onready var healthbar = get_node("CanvasLayer/Healthbar")
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
 	healthbar.update_max_health(MAX_LIFE)
@@ -192,12 +192,14 @@ func take_damage(damage):
 			var colored = true
 			while not hurtbox_timer.is_stopped():
 				if colored:
-					player_sprite.modulate = Color(10.0,0,0,1.0)
+					colored = false
+					player_sprite.modulate = Color(1,0.125,0.125,0.666)
+					aux_timer.start(hurtbox_timer.time_left/2)
 				else:
-					player_sprite.modulate = Color(1,1,1,1)
-				aux_timer.start(hurtbox_timer.time_left/5)
+					colored = true
+					player_sprite.modulate = Color(1,1,1,0.8)
+					aux_timer.start(hurtbox_timer.time_left/3)
 				yield(aux_timer,"timeout")
-				print("here")
 			aux_timer.queue_free()
 
 
