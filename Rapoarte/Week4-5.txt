@@ -1,0 +1,15 @@
+Minut Mihai si Cretu Bogdan
+Comun:
+Am decis sa imbunatatim aspectul general al jocului si inceperea de elemente de UI
+
+Minut Mihai: 
+Modificare sprite-uri drona
+Schimbare parametri pentru gloante
+Creere de sistem de viata si damage asupra dronei
+Creeare de Sprite-uri pentru spikes de baza, precum si cod pentru a lua damage la contactul cu acestia
+Implementare afisare viata prin intermediul unui life bar
+
+Cretu Bogdan:
+Creare Backgrounduri initiale pentru Jungle si Underground
+Adaugare Backgrounduri in nivel pentru testare
+Creare Sprite-uri pentru Life Bar
