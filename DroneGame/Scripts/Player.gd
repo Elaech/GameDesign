@@ -77,7 +77,7 @@ func shoot_cannonball():
 	cannonball_instance.direction = -propulsion_direction
 	cannonball_instance.damage =  cannon_damage
 	cannonball_instance.cannonball_speed = cannonball_speed
-	cannonball_instance.position = self.position - propulsion_direction * 3
+	cannonball_instance.position = self.position - propulsion_direction * 5
 	self.get_parent().add_child(cannonball_instance)
 	cannonball_instance.change_look(cannon_mode)
 	
@@ -208,9 +208,3 @@ func _on_HurtboxTimer_timeout():
 			return
 	last_damaging_areas.clear()
 
-
-func _on_Hurtbox_body_entered(body):
-	print("here")
-	if body.has_method("get_damage"):
-		last_damaging_areas.append(body)
-		take_damage(body.get_damage())
