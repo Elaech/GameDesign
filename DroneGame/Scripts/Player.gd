@@ -130,7 +130,7 @@ func load_cannon(index):
 		CANNON_FORCE = 20
 		GRAVITY = 40
 		next_cannon_timer_wait_time = 0.3
-		cannon_damage = 3
+		cannon_damage = 10
 		up_motion_multi = 1
 		down_motion_multi = 0.4
 		left_motion_multi = 1.5
@@ -143,7 +143,7 @@ func load_cannon(index):
 		CANNON_FORCE = 80
 		GRAVITY = 80
 		next_cannon_timer_wait_time = 0.5
-		cannon_damage = 10
+		cannon_damage = 25
 		up_motion_multi = 1.25
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25
@@ -156,7 +156,7 @@ func load_cannon(index):
 		CANNON_FORCE = 200
 		GRAVITY = 120
 		next_cannon_timer_wait_time = 0.7
-		cannon_damage = 30
+		cannon_damage = 50
 		up_motion_multi = 1.25
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25

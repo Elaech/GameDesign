@@ -45,3 +45,10 @@ func change_look(index):
 		3:
 			sprite.frame = 2
 			self.scale = Vector2(1.2,1.2)
+
+
+func _on_Hitbox_area_entered(area):
+	queue_free()
+
+func get_damage():
+	return damage
