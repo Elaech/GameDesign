@@ -10,7 +10,7 @@ var motion = Vector2.ZERO
 var direction = Vector2.ZERO
 var MAX_SPEED = 60
 var SPEED = 40
-var WANDER_SPEED = 3
+var WANDER_SPEED = 2
 var FRICTION = 0.03
 var rng = RandomNumberGenerator.new()
 
