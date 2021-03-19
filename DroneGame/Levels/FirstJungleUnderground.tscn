@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tilemaps/JungleTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/UndergroundJungleTileMap.tscn" type="PackedScene" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://WorldObjects/SpikesTilemap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/RepeatingForest3.png" type="Texture" id=5]
 [ext_resource path="res://Textures/someStone1.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Layer1ForstParallax.png" type="Texture" id=7]
 
 [node name="World" type="Node2D"]
 
 [node name="JungleBG" type="Sprite" parent="."]
+visible = false
 position = Vector2( -448, -315 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
@@ -18,6 +20,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 27000, 3500 )
 
 [node name="UnderJungleBG" type="Sprite" parent="."]
+visible = false
 position = Vector2( -449, -315 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
@@ -36,3 +39,13 @@ tile_data = PoolIntArray( -2489762, 0, 196608, -2489761, 0, 196609, -2489760, 0,
 
 [node name="Spikes" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -983030, 1, 0, -983029, 1, 0, -983028, 1, 0, -983027, 1, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983022, 1, 0, -983021, 1, 0, -983020, 1, 0, -983019, 1, 0, -983018, 1, 0, -983017, 1, 0, -983016, 1, 0, -786422, 0, 0, -786421, 0, 0, -786420, 0, 0, -786419, 0, 0, -786418, 0, 0, -786417, 0, 0, -786416, 0, 0, -786415, 0, 0, -786414, 0, 0, -786413, 0, 0, -786412, 0, 0, -786411, 0, 0, -786410, 0, 0, -786409, 0, 0, -786408, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 600, 300 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1, -6.4 )
+scale = Vector2( 1.00333, 1.00267 )
+texture = ExtResource( 7 )
