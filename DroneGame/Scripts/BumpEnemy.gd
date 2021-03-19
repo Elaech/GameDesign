@@ -17,7 +17,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 
-func _process(delta):
+func _process(_delta):
 	if player_detected:
 		if timer.is_stopped():
 			direction = (-self.position + player.position).normalized()
@@ -42,7 +42,7 @@ func get_damage():
 	return damage
 
 
-func _on_PlayerDetector_area_entered(area):
+func _on_PlayerDetector_area_entered(_area):
 	player_detected = true
 
 

@@ -47,7 +47,7 @@ func change_look(index):
 			self.scale = Vector2(1.2,1.2)
 
 
-func _on_Hitbox_area_entered(area):
+func _on_Hitbox_area_entered(_area):
 	queue_free()
 
 func get_damage():
