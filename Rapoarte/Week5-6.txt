@@ -1,0 +1,17 @@
+Raport week 5-6
+
+Comun: 
+Am decis asupra taskurilor saptamanii: un inamic de baza (albina) si Un Background Parallax
+Testare Prototip de inamic si parallax in joc
+Testare primului inamic si variantei beta de Parallax
+
+
+Minut Mihai: 
+Design si Cod pentru un inamic de baza folosind o textura temporara cu AI de urmarire.
+Inamicul da Damage la contact cu jucatorul.
+Creeare Sprite-uri pentru inamic, o albina care zboara si aplicarea in joc a acestora
+
+Cretu Bogdan:
+Creare prototip Parallax si adugare in joc a acestuia.
+Design si Desen Parallax varinata Beta, 3 layer-uri
+Adaugare Parallax beta in joc
