@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilemaps/JungleTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/UndergroundJungleTileMap.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://WorldObjects/SpikesTilemap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/RepeatingForest3.png" type="Texture" id=5]
 [ext_resource path="res://Textures/someStone1.png" type="Texture" id=6]
-[ext_resource path="res://Textures/Layer1ForstParallax.png" type="Texture" id=7]
-[ext_resource path="res://Textures/Layer2ForstParallax.png" type="Texture" id=8]
+[ext_resource path="res://Textures/BetaParallaxLayer3.png" type="Texture" id=7]
+[ext_resource path="res://Textures/BetaParallaxLayer2.png" type="Texture" id=8]
 [ext_resource path="res://WorldObjects/BumpEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Textures/BetaParallaxLayer1.png" type="Texture" id=10]
 
 [node name="World" type="Node2D"]
 
@@ -42,27 +43,40 @@ tile_data = PoolIntArray( -2489762, 0, 196608, -2489761, 0, 196609, -2489760, 0,
 [node name="Spikes" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -983030, 1, 0, -983029, 1, 0, -983028, 1, 0, -983027, 1, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983022, 1, 0, -983021, 1, 0, -983020, 1, 0, -983019, 1, 0, -983018, 1, 0, -983017, 1, 0, -983016, 1, 0, -786422, 0, 0, -786421, 0, 0, -786420, 0, 0, -786419, 0, 0, -786418, 0, 0, -786417, 0, 0, -786416, 0, 0, -786415, 0, 0, -786414, 0, 0, -786413, 0, 0, -786412, 0, 0, -786411, 0, 0, -786410, 0, 0, -786409, 0, 0, -786408, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0 )
 
-[node name="ParallaxLayer1" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2( 0.5, 0.5 )
+[node name="Parallax3" type="ParallaxBackground" parent="."]
+layer = -98
+scroll_base_scale = Vector2( 0.7, 0.7 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer1"]
-motion_mirroring = Vector2( 900, 500 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax3"]
+motion_mirroring = Vector2( 900, 300 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxLayer1/ParallaxLayer"]
-position = Vector2( 37.5, -54.5 )
-scale = Vector2( 1.50833, 1.66333 )
+[node name="Sprite" type="Sprite" parent="Parallax3/ParallaxLayer"]
 texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 900, 300 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Parallax2" type="ParallaxBackground" parent="."]
+layer = -99
 scroll_base_scale = Vector2( 0.8, 0.8 )
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 900, 500 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2"]
+motion_mirroring = Vector2( 900, 300 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 37.5, -54.5 )
-scale = Vector2( 1.50833, 1.66333 )
+[node name="Sprite" type="Sprite" parent="Parallax2/ParallaxLayer"]
 texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 900, 300 )
+
+[node name="Parallax1" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0.9, 0.9 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax1"]
+motion_mirroring = Vector2( 900, 300 )
+
+[node name="Sprite" type="Sprite" parent="Parallax1/ParallaxLayer"]
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 900, 300 )
 
 [node name="Bumper" parent="." instance=ExtResource( 9 )]
 position = Vector2( -252, -180 )
@@ -78,3 +92,81 @@ position = Vector2( -364, -20 )
 
 [node name="Bumper5" parent="." instance=ExtResource( 9 )]
 position = Vector2( -380, -4 )
+
+[node name="Bumper6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 40, -131 )
+
+[node name="Bumper7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 238, -174 )
+
+[node name="Bumper8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 454, -39 )
+
+[node name="Bumper9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 842, -13 )
+
+[node name="Bumper10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1198, -30 )
+
+[node name="Bumper11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1213, -39 )
+
+[node name="Bumper12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1193, -11 )
+
+[node name="Bumper13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1798, 29 )
+
+[node name="Bumper14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1774, 33 )
+
+[node name="Bumper15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1775, -11 )
+
+[node name="Bumper16" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2242, 182 )
+
+[node name="Bumper17" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2241, 147 )
+
+[node name="Bumper18" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2379, 176 )
+
+[node name="Bumper19" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2353, 197 )
+
+[node name="Bumper20" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2374, 157 )
+
+[node name="Bumper21" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2285, 185 )
+
+[node name="Bumper22" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2949, -155 )
+
+[node name="Bumper23" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2936, -144 )
+
+[node name="Bumper24" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3157, -247 )
+
+[node name="Bumper25" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3589, -221 )
+
+[node name="Bumper26" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3616, -204 )
+
+[node name="Bumper27" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4090, -143 )
+
+[node name="Bumper28" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4070, -155 )
+
+[node name="Bumper29" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4067, -123 )
+
+[node name="Bumper30" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4068, -139 )
+
+[node name="Bumper31" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4066, -170 )
