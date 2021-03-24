@@ -23,10 +23,10 @@ follow_viewport_enable = true
 script = ExtResource( 4 )
 
 [node name="Healthbar" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_left = -191.0
-margin_top = -90.0
-margin_right = -491.0
-margin_bottom = -281.0
+margin_left = -170.0
+margin_top = -82.0
+margin_right = -470.0
+margin_bottom = -262.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
