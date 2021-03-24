@@ -10,6 +10,7 @@ Minut Mihai:
 Design si Cod pentru un inamic de baza folosind o textura temporara cu AI de urmarire.
 Inamicul da Damage la contact cu jucatorul.
 Creeare Sprite-uri pentru inamic, o albina care zboara si aplicarea in joc a acestora
+Creat Respawn
 
 Cretu Bogdan:
 Creare prototip Parallax si adugare in joc a acestuia.

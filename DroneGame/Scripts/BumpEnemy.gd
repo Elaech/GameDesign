@@ -3,7 +3,7 @@ extends KinematicBody2D
 var damage = 100
 var life = 100
 var player_detected = false
-onready var player = get_node("../Player")
+var player = null
 onready var timer = get_node("DirectionTimer")
 onready var sprite = get_node("AnimatedSprite")
 var direction_time = 0.25
@@ -55,7 +55,8 @@ func get_damage():
 	return damage
 
 
-func _on_PlayerDetector_area_entered(_area):
+func _on_PlayerDetector_area_entered(area):
+	player = area.get_parent()
 	player_detected = true
 
 
