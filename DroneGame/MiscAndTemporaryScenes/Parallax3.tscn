@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Textures/BetaParallaxLayer1.png" type="Texture" id=1]
+[ext_resource path="res://Textures/BetaParallaxLayer3.png" type="Texture" id=1]
 
-[node name="Parallax1" type="ParallaxBackground"]
-scroll_base_scale = Vector2( 0.9, 0.9 )
+[node name="Parallax3" type="ParallaxBackground"]
+layer = -98
+scroll_base_scale = Vector2( 0.7, 0.7 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 900, 450 )
