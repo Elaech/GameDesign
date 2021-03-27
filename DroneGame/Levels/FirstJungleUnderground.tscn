@@ -9,7 +9,7 @@
 [ext_resource path="res://Textures/BetaParallaxLayer3.png" type="Texture" id=7]
 [ext_resource path="res://Textures/BetaParallaxLayer2.png" type="Texture" id=8]
 [ext_resource path="res://WorldObjects/BumpEnemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Textures/BetaParallaxLayer1.png" type="Texture" id=10]
+[ext_resource path="res://MiscAndTemporaryScenes/Parallax1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/FirstJungleUnderground.gd" type="Script" id=11]
 
 [node name="World" type="Node2D"]
@@ -69,16 +69,7 @@ texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 900, 300 )
 
-[node name="Parallax1" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2( 0.9, 0.9 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax1"]
-motion_mirroring = Vector2( 900, 300 )
-
-[node name="Sprite" type="Sprite" parent="Parallax1/ParallaxLayer"]
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 900, 300 )
+[node name="Parallax1" parent="." instance=ExtResource( 10 )]
 
 [node name="Bumper" parent="." instance=ExtResource( 9 )]
 position = Vector2( -252, -180 )
