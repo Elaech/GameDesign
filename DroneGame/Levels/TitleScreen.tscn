@@ -1,24 +1,25 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Textures/MenuDrone.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://TempTextures/BlueSquare3.png" type="Texture" id=3]
+[ext_resource path="res://Textures/MenuTile.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=4]
+[ext_resource path="res://Textures/MenuTitleDesignBar.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 9
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 14
 font_data = ExtResource( 2 )
 
@@ -49,6 +50,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SubTitle" type="TextureRect" parent="."]
+margin_left = 159.453
+margin_top = 10.9238
+margin_right = 359.453
+margin_bottom = 70.9238
+rect_scale = Vector2( 1.00452, 0.789848 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Info" type="Control" parent="."]
 margin_left = 251.236
 margin_top = 144.595
@@ -59,7 +71,7 @@ __meta__ = {
 }
 
 [node name="Info" type="Label" parent="Info"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.415686, 0, 0.388235, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -83,7 +95,7 @@ margin_left = 176.695
 margin_top = 15.9725
 margin_right = 346.695
 margin_bottom = 46.9725
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -119,8 +131,8 @@ margin_top = 30.2907
 margin_right = 42.894
 margin_bottom = 58.2907
 mouse_default_cursor_shape = 2
-custom_styles/focus = SubResource( 5 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 align = 0
 __meta__ = {
@@ -133,7 +145,7 @@ margin_top = 4.97176
 margin_right = 41.9244
 margin_bottom = 24.9718
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.0690308, 0.669249, 0.679688, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -151,7 +163,7 @@ margin_right = 95.4876
 margin_bottom = 89.4944
 mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 6 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 align = 0
 __meta__ = {
@@ -164,7 +176,7 @@ margin_top = 4.97176
 margin_right = 41.9244
 margin_bottom = 24.9718
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.0690308, 0.669249, 0.679688, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -182,7 +194,7 @@ margin_right = 144.935
 margin_bottom = 119.334
 mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 7 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 align = 0
 __meta__ = {
@@ -195,7 +207,7 @@ margin_top = 4.88504
 margin_right = 90.2581
 margin_bottom = 24.885
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.0690308, 0.669249, 0.679688, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -213,7 +225,7 @@ margin_right = 110.041
 margin_bottom = 148.514
 mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 8 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 align = 0
 __meta__ = {
@@ -226,7 +238,7 @@ margin_top = 4.97176
 margin_right = 41.9244
 margin_bottom = 24.9718
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.0690308, 0.669249, 0.679688, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -244,7 +256,7 @@ margin_right = 46.4341
 margin_bottom = 178.615
 mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 9 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 align = 0
 __meta__ = {
@@ -257,7 +269,7 @@ margin_top = 4.97176
 margin_right = 41.9244
 margin_bottom = 24.9718
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0.0690308, 0.669249, 0.679688, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
