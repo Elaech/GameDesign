@@ -1,0 +1,19 @@
+Week6-7
+Cretu Bogdan si Minut Mihai
+
+Comun:
+Decizii legate de design, dimensiuni nivele, decizii culori meniu
+Analiza si Feedback pentru Meniu si Nivele
+
+Cretu Bogdan
+Creare Nivele conceptuale
+Transformare Paralax in scene independente
+Creare Nivel 1
+iteratii succesive de imbunatatire pentru nivelul 1
+
+Minut Mihai
+Creare Meniu, sprite-uri Meniu
+Designuri succesive Meniu, implementare Play si Exit
+Creare elemente Meniu
+Design, Sprite si animatie Resursa
+Sistem Saving Cu inregistrare resurse colectate
