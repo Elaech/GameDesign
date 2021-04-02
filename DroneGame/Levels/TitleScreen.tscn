@@ -79,8 +79,9 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.19055
-margin_bottom = -1.19055
+margin_left = -1.0
+margin_top = -1.0
+margin_bottom = 1.0
 texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
@@ -165,7 +166,7 @@ __meta__ = {
 [node name="PlayButton" type="Button" parent="Buttons"]
 margin_left = -1.10602
 margin_top = 30.2907
-margin_right = 42.894
+margin_right = 80.0
 margin_bottom = 58.2907
 mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 3 )
