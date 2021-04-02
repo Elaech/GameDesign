@@ -9,10 +9,13 @@ const CURRENT_LEVEL = "current_level"
 const PATH_TO_SAVE = "user://save.dat"
 const PASSWORD = "10293847"
 const SAVE_VERSION = "version"
+# do not change current version 
+# unless you want the save data of players to be deleted
+# the need of this is in case we revert back and must make save data changes
 const CURRENT_VERSION = 1
 
 var player_data
-onready var counter = get_node("CursedChips/Counter")
+onready var counter = get_node("CursedChips/HBoxContainer/Counter")
 onready var play_label = get_node("Buttons/PlayButton/Label")
 
 func _ready():
@@ -64,6 +67,7 @@ func new_player_data():
 		"current_level": null,
 		"current_health" : null,
 		"taken_resources" : null,
+		"killed_enemies" : null,
 		"version": CURRENT_VERSION
 	}
 	var file = File.new()

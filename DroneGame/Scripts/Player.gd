@@ -1,6 +1,7 @@
 # Player.gd
 extends KinematicBody2D
 
+signal player_dies
 var MAX_LIFE = 500
 var LIFE = 500
 var FRICTION = 0.03
@@ -181,9 +182,7 @@ func take_damage(damage):
 		LIFE =LIFE -damage
 		healthbar.update_health(LIFE)
 		if LIFE <= 0:
-			detach_camera()
-			healthbar.destroy()
-			queue_free()
+			emit_signal("player_dies")
 		else:
 			set_deferred("hurtbox.monitoring", false)
 			hurtbox_timer.start(hurtbox_disable_time)
@@ -202,6 +201,8 @@ func take_damage(damage):
 				yield(aux_timer,"timeout")
 			aux_timer.queue_free()
 
+func update_life(value):
+	healthbar.update_health(LIFE)
 
 func detach_camera():
 	self.remove_child(camera)
