@@ -8,8 +8,8 @@ const CURRENT_CHECKPOINT = "current_checkpoint"
 const CURRENT_LEVEL = "current_level"
 const PATH_TO_SAVE = "user://save.dat"
 const PASSWORD = "10293847"
-const CURRENT_VERSION = 0
-
+const SAVE_VERSION = "version"
+const CURRENT_VERSION = 1
 
 var player_data
 onready var counter = get_node("CursedChips/Counter")
@@ -51,7 +51,9 @@ func load_player_data():
 	if error == OK:
 		player_data = file.get_var()
 		file.close()
-
+	if player_data[SAVE_VERSION] < CURRENT_VERSION:
+		new_player_data()
+	
 func new_player_data():
 	player_data = {
 		"CC" : 0,
@@ -62,7 +64,7 @@ func new_player_data():
 		"current_level": null,
 		"current_health" : null,
 		"taken_resources" : null,
-		"version": 0
+		"version": CURRENT_VERSION
 	}
 	var file = File.new()
 	var error = file.open_encrypted_with_pass(PATH_TO_SAVE,File.WRITE,PASSWORD)

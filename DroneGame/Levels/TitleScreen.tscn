@@ -326,16 +326,26 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CursedChips"]
-position = Vector2( 338.632, 95 )
+position = Vector2( 322.441, 92.4901 )
 frames = SubResource( 16 )
-frame = 2
+frame = 1
 playing = true
 
-[node name="Counter" type="Label" parent="CursedChips"]
-margin_left = 315.279
-margin_top = 87.7977
-margin_right = 355.279
-margin_bottom = 109.798
+[node name="HBoxContainer" type="HBoxContainer" parent="CursedChips"]
+margin_left = 244.0
+margin_top = 76.0
+margin_right = 310.0
+margin_bottom = 116.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="Label" parent="CursedChips/HBoxContainer"]
+margin_left = 55.0
+margin_top = 10.0
+margin_right = 66.0
+margin_bottom = 30.0
 custom_fonts/font = SubResource( 17 )
 text = "0"
 __meta__ = {
