@@ -31,7 +31,7 @@ onready var hurtbox_timer = get_node("Hurtbox/HurtboxTimer")
 onready var camera=  get_node("Camera2D")
 onready var hurtbox_collision =  get_node("Hurtbox/CollisionShape2D")
 onready var hurtbox = get_node("Hurtbox")
-onready var healthbar = get_node("CanvasLayer/Healthbar")
+onready var healthbar = get_node("UI/Healthbar")
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
 	healthbar.update_max_health(MAX_LIFE)
