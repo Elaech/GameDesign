@@ -23,10 +23,9 @@ var current_checkpoint = null
 var not_saved_resources = []
 
 func _ready():
-	
 	load_player_data()
 	init_level()
-	if player_data["current_level"] == LEVEL and player_data["current_checkpoint"] != null:
+	if player_data[CURRENT_LEVEL] == LEVEL and player_data["current_checkpoint"] != null:
 		load_checkpoint_from_save()
 		load_checkpoint()
 	else:
@@ -121,20 +120,20 @@ func capture_resource(resource):
 func save_unsaved_resources():
 	player_data[CC] += not_saved_resources.size()
 	for res in not_saved_resources:
-		player_data[TAKEN_RESOURCES][CURRENT_LEVEL].append(res.resource_number)
+		player_data[TAKEN_RESOURCES][LEVEL].append(res.resource_number)
 		res.queue_free()
-	not_saved_resources.clear()
+	not_saved_resources = []
 
 func init_resources():
 	if player_data[TAKEN_RESOURCES] == null:
 		player_data[TAKEN_RESOURCES]= {}
-	if player_data[TAKEN_RESOURCES].has(CURRENT_LEVEL):
-		var taken_resources = player_data[TAKEN_RESOURCES][CURRENT_LEVEL]
+	if player_data[TAKEN_RESOURCES].has(LEVEL):
+		var taken_resources = player_data[TAKEN_RESOURCES][LEVEL]
 		print(taken_resources)
 		for res_nr in taken_resources:
 			delete_resource(res_nr)
 	else:
-		player_data[TAKEN_RESOURCES][CURRENT_LEVEL] = []
+		player_data[TAKEN_RESOURCES][LEVEL] = []
 
 func delete_resource(number):
 	for res in all_resources.get_children():
@@ -144,7 +143,7 @@ func delete_resource(number):
 func respawn_not_saved_resources():
 	for res in not_saved_resources:
 		res.visible = true
-	not_saved_resources.clear()
+	not_saved_resources = []
 
 func despawn_resource(resource):
 	resource.visible = false
