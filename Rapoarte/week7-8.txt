@@ -1,0 +1,19 @@
+week7-8
+
+Comun:
+Design Nivele si analiza acestora
+
+
+Minut Mihai:
+Sistem de salvare a progresului jucatorului
+Sistem de checkpoints
+Sistem pick-up resurse din nivel
+Sprite-uri Checkpoint complete
+Detaliere Nivel 1
+
+
+Cretu Bogdan
+Creat Nivel 2, Detaliere Nivel 1
+Creare Sageti indicatoare directie (sprite-uri)
+Creare TextBox pentru uz ulterior
+Varianta 1 de Sprite Portal Next level
