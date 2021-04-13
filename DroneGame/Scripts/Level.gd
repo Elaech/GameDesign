@@ -13,14 +13,17 @@ const SAVE_VERSION = "version"
 const CURRENT_VERSION = 1
 var LEVEL
 var START_PLAYER_POS
-onready var all_checkpoints =get_node("Checkpoints")
-onready var all_resources = get_node("Resources")
-onready var player = get_node("Player")
-onready var level_info = get_node("LevelInfo")
+onready var all_checkpoints =get_node("Pause/Checkpoints")
+onready var all_resources = get_node("Pause/Resources")
+onready var player = get_node("Pause/Player")
+onready var level_info = get_node("Pause/LevelInfo")
+onready var pause_menu = get_node("PauseMenu")
+onready var escape_timer = get_node("Timer")
 var player_data
 var checkpoint_data = null
 var current_checkpoint = null
 var not_saved_resources = []
+var game_pause = false
 
 func _ready():
 	load_player_data()
@@ -33,10 +36,28 @@ func _ready():
 		player_data["current_checkpoint"] = null
 		player_data["current_health"] = player_data["max_health"]
 
+
+func _process(delta):
+	if Input.is_key_pressed(KEY_ESCAPE) and escape_timer.is_stopped():
+		if game_pause:
+			pause_menu.hide()
+			game_pause = false
+			get_tree().paused = false
+		else:
+			pause_menu.update_chips(player_data[CC])
+			pause_menu.set_global_position(player.global_position)
+			pause_menu.show()
+			game_pause = true
+			get_tree().paused = true
+		escape_timer.start(0.5)
+
 func init_level():
+	pause_menu.hide()
 	self.LEVEL = level_info.LEVEL
 	self.START_PLAYER_POS =  level_info.START_PLAYER_POS
 	init_resources()
+
+
 
 func reached_checkpoint(checkpoint):
 	if current_checkpoint != null:
@@ -154,3 +175,19 @@ func _on_Player_player_dies():
 
 func _on_CursedChip_resource_captured(resource):
 	capture_resource(resource)
+
+
+func _on_PauseMenu_player_menu_resume():
+	pause_menu.hide()
+	game_pause = false
+	get_tree().paused = false
+	escape_timer.start(0.5)
+
+
+func _on_PauseMenu_player_menu_exit():
+	get_tree().paused = false
+	get_tree().change_scene("res://Levels/TitleScreen.tscn")
+
+
+func _on_Timer_timeout():
+	escape_timer.stop()

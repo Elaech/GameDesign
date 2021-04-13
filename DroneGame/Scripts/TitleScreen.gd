@@ -18,6 +18,7 @@ const CURRENT_VERSION = 1
 var player_data
 onready var counter = get_node("CursedChips/HBoxContainer/Counter")
 onready var play_label = get_node("Buttons/PlayButton/Label")
+onready var pause_menu = null
 
 func _ready():
 	load_player_data()

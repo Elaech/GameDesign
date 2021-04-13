@@ -224,4 +224,3 @@ func _on_HurtboxTimer_timeout():
 			take_damage(area.get_damage())
 			return
 	last_damaging_areas.clear()
-
