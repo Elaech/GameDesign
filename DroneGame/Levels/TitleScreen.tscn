@@ -328,7 +328,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CursedChips"]
 position = Vector2( 327.872, 92.4901 )
 frames = SubResource( 16 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CursedChips"]
