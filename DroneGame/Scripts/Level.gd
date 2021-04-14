@@ -13,6 +13,7 @@ const SAVE_VERSION = "version"
 const CURRENT_VERSION = 1
 var LEVEL
 var START_PLAYER_POS
+var NEXT_LEVEL
 onready var all_checkpoints =get_node("Pause/Checkpoints")
 onready var all_resources = get_node("Pause/Resources")
 onready var player = get_node("Pause/Player")
@@ -55,6 +56,7 @@ func init_level():
 	pause_menu.hide()
 	self.LEVEL = level_info.LEVEL
 	self.START_PLAYER_POS =  level_info.START_PLAYER_POS
+	self.NEXT_LEVEL = level_info.NEXT_LEVEL
 	init_resources()
 
 
@@ -191,3 +193,14 @@ func _on_PauseMenu_player_menu_exit():
 
 func _on_Timer_timeout():
 	escape_timer.stop()
+
+
+func _on_Portal_level_finished():
+	if !(NEXT_LEVEL in player_data[UNLOCKED_LVL]): 
+		player_data[UNLOCKED_LVL].append(NEXT_LEVEL)
+	player_data[CURRENT_CHECKPOINT] = null
+	save_player_data()
+	get_tree().change_scene(map_level_to_string(NEXT_LEVEL))
+
+func map_level_to_string(level):
+	return "res://Levels/Level1_0world.tscn"

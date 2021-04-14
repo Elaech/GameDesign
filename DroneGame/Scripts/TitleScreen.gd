@@ -36,6 +36,9 @@ func _on_PlayButton_button_up():
 	get_tree().change_scene("res://Levels/Level1_0world.tscn")
 
 
+func map_level_to_string(level):
+	if level == 1:
+		return "res://Levels/Level1_0world.tscn"
 
 func _on_ExitButton_button_up():
 	get_tree().quit()
@@ -78,3 +81,7 @@ func new_player_data():
 		file.store_var(player_data)
 		file.close()
 	
+
+
+func _on_LevelsButton_button_up():
+	get_tree().change_scene("res://Levels/LevelMenu.tscn")

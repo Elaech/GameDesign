@@ -117,5 +117,6 @@ position = Vector2( 1359.3, -91.6669 )
 [connection signal="checkpoint_activated" from="Pause/Checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
 [connection signal="checkpoint_activated" from="Pause/Checkpoints/Checkpoint2" to="." method="_on_Checkpoint_checkpoint_activated"]
 [connection signal="player_dies" from="Pause/Player" to="." method="_on_Player_player_dies"]
+[connection signal="level_finished" from="Pause/Portal" to="." method="_on_Portal_level_finished"]
 [connection signal="player_menu_exit" from="PauseMenu" to="." method="_on_PauseMenu_player_menu_exit"]
 [connection signal="player_menu_resume" from="PauseMenu" to="." method="_on_PauseMenu_player_menu_resume"]
