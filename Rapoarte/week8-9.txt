@@ -1,0 +1,11 @@
+week 8-9
+Minut Mihai
+Sistem trecere intre Nivele
+Creare script portal
+Creere sistem selectie Nivele si Meniu pentru Selectie nivel
+Meniu si mecanica pentru pauza in joc
+
+Cretu Bogdan
+Finalizare Sprite Portal
+Creare animatie portal ca scena
+Finisare Nivel 2 cu spike-uri si 
