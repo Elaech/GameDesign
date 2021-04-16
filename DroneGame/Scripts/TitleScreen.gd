@@ -13,7 +13,7 @@ const SAVE_VERSION = "version"
 # do not change current version 
 # unless you want the save data of players to be deleted
 # the need of this is in case we revert back and must make save data changes
-const CURRENT_VERSION = 1
+const CURRENT_VERSION = 2
 
 var player_data
 onready var counter = get_node("CursedChips/HBoxContainer/Counter")
@@ -33,12 +33,16 @@ func _ready():
 
 
 func _on_PlayButton_button_up():
-	get_tree().change_scene("res://Levels/Level1_0world.tscn")
+	if player_data[CURRENT_LEVEL]!=null:
+		get_tree().change_scene(map_level_to_string(player_data[CURRENT_LEVEL]))
+	else:
+		get_tree().change_scene(map_level_to_string(player_data[UNLOCKED_LVL].max()))
 
 
 func map_level_to_string(level):
 	if level == 1:
 		return "res://Levels/Level1_0world.tscn"
+	return "res://Levels/Level1_0world.tscn"
 
 func _on_ExitButton_button_up():
 	get_tree().quit()
@@ -64,10 +68,12 @@ func load_player_data():
 	
 func new_player_data():
 	player_data = {
-		"CC" : 0,
+		"CC" : 500,
 		"unlocked_levels" : [1],
 		"max_health" : 500,
-		"damage_factor": 1,
+		"damage_upgrade": 0,
+		"life_upgrade": 0,
+		"immunity_upgrade":0,
 		"current_checkpoint": null,
 		"current_level": null,
 		"current_health" : null,
@@ -85,3 +91,7 @@ func new_player_data():
 
 func _on_LevelsButton_button_up():
 	get_tree().change_scene("res://Levels/LevelMenu.tscn")
+
+
+func _on_UpgradesButton_button_up():
+	get_tree().change_scene("res://Levels/UpdateMenu.tscn")

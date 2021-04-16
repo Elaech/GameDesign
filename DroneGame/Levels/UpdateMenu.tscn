@@ -1,0 +1,487 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Textures/MenuTile.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Textures/Resource-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/UpdateMenu.gd" type="Script" id=4]
+[ext_resource path="res://Textures/BackgroundTileUpgradeMenu.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 120, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="DynamicFont" id=13]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="UpdateMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -2.35968
+margin_top = -2.35971
+margin_right = 361.64
+margin_bottom = 180.64
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+margin_left = 111.755
+margin_top = 5.55172
+margin_right = 246.755
+margin_bottom = 36.5517
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.184314, 0.819608, 1, 1 )
+text = "Upgrades"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LowerButtons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Back" type="Button" parent="LowerButtons"]
+margin_left = 8.0
+margin_top = 137.0
+margin_right = 64.0
+margin_bottom = 171.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 14 )
+flat = true
+
+[node name="Label" type="Label" parent="LowerButtons/Back"]
+margin_left = 2.52269
+margin_top = 3.35211
+margin_right = 52.5227
+margin_bottom = 33.3521
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.827451, 1, 1 )
+text = "Back"
+align = 1
+valign = 1
+
+[node name="Reset" type="Button" parent="LowerButtons"]
+margin_left = 275.397
+margin_top = 134.397
+margin_right = 341.397
+margin_bottom = 168.397
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 15 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LowerButtons/Reset"]
+margin_left = 3.71324
+margin_top = 3.35211
+margin_right = 63.7132
+margin_bottom = 33.3521
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.827451, 1, 1 )
+text = "Reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrades" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life" type="Control" parent="Upgrades"]
+margin_left = -44.4614
+margin_top = -14.3947
+margin_right = -4.46136
+margin_bottom = 25.6053
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureRect" parent="Upgrades/Life"]
+margin_left = 52.0
+margin_top = 40.0
+margin_right = 127.0
+margin_bottom = 129.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Upgrades/Life"]
+margin_left = 68.5815
+margin_top = 45.9293
+margin_right = 108.582
+margin_bottom = 62.9294
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Life"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cost" type="Label" parent="Upgrades/Life"]
+margin_left = 60.8017
+margin_top = 110.109
+margin_right = 100.802
+margin_bottom = 127.109
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0.733333, 1, 1 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Upgrades/Life"]
+margin_left = 62.523
+margin_top = 66.5989
+margin_right = 114.523
+margin_bottom = 83.5989
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 13.4717, 34.701 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 1, 0, 0.560784, 1 )
+text = "999"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Upgrades/Life"]
+margin_left = 58.6927
+margin_top = 82.5672
+margin_right = 121.693
+margin_bottom = 106.567
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 16 )
+flat = true
+
+[node name="Label2" type="Label" parent="Upgrades/Life/Button"]
+margin_left = 0.176552
+margin_top = 5.47167
+margin_right = 64.1766
+margin_bottom = 22.4717
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Upgrade"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="AnimatedSprite" parent="Upgrades/Life"]
+position = Vector2( 99.2853, 118.179 )
+frames = SubResource( 12 )
+playing = true
+
+[node name="Damage" type="Control" parent="Upgrades"]
+margin_left = 83.2149
+margin_top = 50.4644
+margin_right = 123.215
+margin_bottom = 90.4644
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back2" type="TextureRect" parent="Upgrades/Damage"]
+margin_left = 50.8108
+margin_top = 39.7027
+margin_right = 125.811
+margin_bottom = 127.703
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Upgrades/Damage"]
+margin_left = 68.5815
+margin_top = 45.9293
+margin_right = 108.582
+margin_bottom = 62.9294
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Damage"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cost" type="Label" parent="Upgrades/Damage"]
+margin_left = 60.8017
+margin_top = 110.109
+margin_right = 100.802
+margin_bottom = 127.109
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0.733333, 1, 1 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Upgrades/Damage"]
+margin_left = 62.523
+margin_top = 66.5989
+margin_right = 114.523
+margin_bottom = 83.5989
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 13.4717, 34.701 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0.6, 0.0392157, 0.0392157, 1 )
+text = "999"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Upgrades/Damage"]
+margin_left = 58.6927
+margin_top = 82.5672
+margin_right = 121.693
+margin_bottom = 106.567
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 17 )
+flat = true
+
+[node name="Label2" type="Label" parent="Upgrades/Damage/Button"]
+margin_left = 0.176552
+margin_top = 5.47167
+margin_right = 64.1766
+margin_bottom = 22.4717
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Upgrade"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="AnimatedSprite" parent="Upgrades/Damage"]
+position = Vector2( 99.2853, 118.179 )
+frames = SubResource( 12 )
+frame = 5
+playing = true
+
+[node name="Immunity" type="Control" parent="Upgrades"]
+margin_left = 221.364
+margin_top = -11.2307
+margin_right = 261.364
+margin_bottom = 28.7693
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back2" type="TextureRect" parent="Upgrades/Immunity"]
+margin_left = 48.732
+margin_top = 39.2856
+margin_right = 123.732
+margin_bottom = 128.286
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Upgrades/Immunity"]
+margin_left = 68.5815
+margin_top = 45.9293
+margin_right = 108.582
+margin_bottom = 62.9294
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Immunity"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cost" type="Label" parent="Upgrades/Immunity"]
+margin_left = 60.8017
+margin_top = 110.109
+margin_right = 100.802
+margin_bottom = 127.109
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0.733333, 1, 1 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Upgrades/Immunity"]
+margin_left = 62.523
+margin_top = 66.5989
+margin_right = 114.523
+margin_bottom = 83.5989
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 13.4717, 34.701 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0.345098, 0.419608, 0.905882, 1 )
+text = "999"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Upgrades/Immunity"]
+margin_left = 58.6927
+margin_top = 82.5672
+margin_right = 121.693
+margin_bottom = 106.567
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 18 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Upgrades/Immunity/Button"]
+margin_left = 0.176552
+margin_top = 5.47167
+margin_right = 64.1766
+margin_bottom = 22.4717
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 1, 0.505882, 1 )
+text = "Upgrade"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="AnimatedSprite" parent="Upgrades/Immunity"]
+position = Vector2( 99.2853, 118.179 )
+frames = SubResource( 12 )
+frame = 5
+playing = true
+
+[node name="Moneyz" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC2" type="AnimatedSprite" parent="Moneyz"]
+position = Vector2( 211.334, 62.7377 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 12 )
+frame = 5
+playing = true
+
+[node name="Label" type="Label" parent="Moneyz"]
+margin_left = 153.173
+margin_top = 60.4015
+margin_right = 193.173
+margin_bottom = 74.4015
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color_shadow = Color( 0, 0.905882, 1, 1 )
+text = "999"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="LowerButtons/Back" to="." method="_on_Back_button_up"]
+[connection signal="button_up" from="LowerButtons/Reset" to="." method="_on_Reset_button_up"]
+[connection signal="button_up" from="Upgrades/Life/Button" to="." method="_on_LifeButton_button_up"]
+[connection signal="button_up" from="Upgrades/Damage/Button" to="." method="_on_DamageButton_button_up"]
+[connection signal="button_up" from="Upgrades/Immunity/Button" to="." method="_on_ImmunityButton_button_up"]
