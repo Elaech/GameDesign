@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 onready var BULLET_SCENE = preload("res://WorldObjects/basicBullet.tscn")
 var player = null
+var life = 125
 
 
 
@@ -30,3 +31,10 @@ func fire():
 func _on_Timer_timeout():
 	if player !=null:
 		fire()
+		
+func _on_Hurtbox_area_entered(area):
+	if area.has_method("get_damage"):
+		life = life - area.get_damage()
+		print(life)
+		if life <= 0:
+			queue_free()
