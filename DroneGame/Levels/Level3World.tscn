@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tilemaps/JungleTileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tilemaps/UndergroundJungleTileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MiscAndTemporaryScenes/Parallax1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MiscAndTemporaryScenes/Parallax3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://MiscAndTemporaryScenes/Parallax2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://WorldObjects/SpikesTilemap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WorldObjects/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://WorldObjects/AnimationPortal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/LevelInfo3.gd" type="Script" id=11]
+
+[node name="Level3World" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Pause" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Jungle" parent="Pause" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -1114097, 0, 196608, -1114096, 0, 262147, -1114095, 0, 1, -1114094, 0, 1, -1114093, 0, 1, -1114092, 0, 2, -1048560, 0, 131072, -1048559, 0, 7, -1048558, 0, 131073, -1048557, 0, 131073, -1048556, 0, 262145, -917512, 0, 131076, -917511, 0, 196609, -917510, 0, 196609, -917509, 0, 196609, -917508, 0, 196609, -917507, 0, 131077, -983023, 0, 65539, -983020, 0, 131079, -983019, 0, 196610, -851985, 0, 131076, -851984, 0, 196609, -851983, 0, 196609, -851982, 0, 196609, -851981, 0, 196609, -851980, 0, 196609, -851979, 0, 196609, -851978, 0, 196609, -851977, 0, 196609, -851976, 0, 196613, -851971, 0, 196612, -851970, 0, 196609, -851969, 0, 196610, -917487, 0, 131079, -917486, 0, 196609, -917485, 0, 196609, -917484, 0, 196613, -917482, 0, 196608, -917481, 0, 131077, -786453, 0, 131076, -786452, 0, 196609, -786451, 0, 196609, -786450, 0, 196609, -786449, 0, 196613, -851968, 0, 196608, -851967, 0, 196609, -851966, 0, 196609, -851965, 0, 196609, -851964, 0, 196609, -851963, 0, 196609, -851962, 0, 196610, -851951, 0, 65539, -851945, 0, 65539, -720919, 0, 196608, -720918, 0, 196609, -720917, 0, 196613, -786425, 0, 196608, -786424, 0, 196609, -786423, 0, 196609, -786422, 0, 196609, -786421, 0, 196609, -786420, 0, 196609, -786419, 0, 196609, -786418, 0, 196609, -786417, 0, 196609, -786416, 0, 196609, -786415, 0, 196613, -786409, 0, 65539, -655385, 0, 131076, -655384, 0, 196610, -720873, 0, 65539, -589849, 0, 131075, -655337, 0, 65539, -524314, 0, 3, -589801, 0, 65539, -458778, 0, 65539, -524265, 0, 65539, -393242, 0, 65539, -458729, 0, 65539, -327706, 0, 65539, -393193, 0, 65539, -262170, 0, 65539, -327657, 0, 65539, -196634, 0, 131075, -262121, 0, 65539, -131097, 0, 3, -196585, 0, 65539, -65561, 0, 65539, -131049, 0, 65539, -25, 0, 65539, -65513, 0, 65539, 65511, 0, 65539, 23, 0, 65539, 131047, 0, 65539, 65559, 0, 65539, 196583, 0, 65539, 131095, 0, 65539, 262119, 0, 65539, 196631, 0, 65539, 327655, 0, 65539, 262167, 0, 65539, 393191, 0, 65539, 327703, 0, 65539, 458727, 0, 65539, 393239, 0, 65539, 524263, 0, 65539, 458775, 0, 65539, 589799, 0, 65539, 524311, 0, 65539, 655335, 0, 65539, 589847, 0, 65539, 720871, 0, 65539, 655383, 0, 65539, 786407, 0, 196612, 786408, 0, 196609, 786409, 0, 196609, 786410, 0, 131077, 720919, 0, 65539, 851946, 0, 196612, 851947, 0, 196609, 851948, 0, 196610, 786442, 0, 196608, 786443, 0, 196609, 786444, 0, 196609, 786445, 0, 196609, 786446, 0, 196609, 786447, 0, 196610, 786454, 0, 131076, 786455, 0, 196613, 917485, 0, 196608, 917486, 0, 196609, 917487, 0, 196609, 917488, 0, 196609, 917489, 0, 196609, 917490, 0, 196609, 917491, 0, 196609, 917492, 0, 196609, 917493, 0, 196609, 917494, 0, 196609, 917495, 0, 196609, 917496, 0, 196609, 917497, 0, 196609, 917498, 0, 196609, 917499, 0, 196609, 917500, 0, 196609, 917501, 0, 196609, 917502, 0, 196609, 917503, 0, 196609, 851968, 0, 196609, 851969, 0, 196609, 851970, 0, 196609, 851971, 0, 196609, 851972, 0, 196609, 851973, 0, 196609, 851974, 0, 196609, 851975, 0, 196609, 851976, 0, 196609, 851977, 0, 196610, 851984, 0, 196608, 851985, 0, 196609, 851986, 0, 196609, 851987, 0, 196609, 851988, 0, 196609, 851989, 0, 196609, 851990, 0, 196613 )
+
+[node name="Underground" parent="Pause" instance=ExtResource( 3 )]
+
+[node name="Parallax1" parent="Pause" instance=ExtResource( 4 )]
+
+[node name="Parallax2" parent="Pause" instance=ExtResource( 6 )]
+
+[node name="Parallax3" parent="Pause" instance=ExtResource( 5 )]
+
+[node name="Spikes" parent="Pause" instance=ExtResource( 7 )]
+
+[node name="Arrows" type="Node2D" parent="Pause"]
+
+[node name="Resources" type="Node2D" parent="Pause"]
+
+[node name="Checkpoints" type="Node2D" parent="Pause"]
+
+[node name="LevelInfo" type="Node2D" parent="Pause"]
+script = ExtResource( 11 )
+
+[node name="Player" parent="Pause" instance=ExtResource( 8 )]
+
+[node name="Portal" parent="Pause" instance=ExtResource( 9 )]
+position = Vector2( 150.435, -2.3784 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 1 )]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="player_dies" from="Pause/Player" to="." method="_on_Player_player_dies"]
+[connection signal="level_finished" from="Pause/Portal" to="." method="_on_Portal_level_finished"]
+[connection signal="player_menu_exit" from="PauseMenu" to="." method="_on_PauseMenu_player_menu_exit"]
+[connection signal="player_menu_resume" from="PauseMenu" to="." method="_on_PauseMenu_player_menu_resume"]

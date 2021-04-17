@@ -3,6 +3,7 @@ extends Node2D
 const CC = "CC"
 const UNLOCKED_LVL = "unlocked_levels"
 const MAX_HEALTH = "max_health"
+const CURRENT_HEALTH = "current_health"
 const DAMAGE_FACTOR = "damage_factor"
 const CURRENT_CHECKPOINT = "current_checkpoint"
 const CURRENT_LEVEL = "current_level"
@@ -36,13 +37,15 @@ func _ready():
 		load_checkpoint_from_save()
 		load_checkpoint()
 	else:
-		player_data["current_level"] = LEVEL
-		player_data["current_checkpoint"] = null
-		player_data["current_health"] = player_data["max_health"]
+		player_data[CURRENT_LEVEL] = LEVEL
+		player_data[CURRENT_CHECKPOINT] = null
+		player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
+		save_player_data()
 
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_ESCAPE) and escape_timer.is_stopped():
+		print("here")
 		if game_pause:
 			pause_menu.hide()
 			game_pause = false
@@ -225,4 +228,15 @@ func _on_Portal_level_finished():
 	get_tree().change_scene(map_level_to_string(NEXT_LEVEL))
 
 func map_level_to_string(level):
-	return "res://Levels/Level1_0world.tscn"
+	if level==1:
+		return "res://Levels/Level1_0World.tscn"
+	elif level==2:
+		return "res://Levels/Level2World.tscn"
+	elif level==3:
+		return "res://Levels/Level3World.tscn"
+	elif level==4:
+		return "res://Levels/Level4World.tscn"
+	elif level==5:
+		return "res://Levels/Level5World.tscn"
+	else:
+		return "res://Levels/Level5World.tscn" 

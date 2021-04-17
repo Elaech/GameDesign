@@ -45,7 +45,18 @@ func save_player_data():
 		get_tree().quit()
 
 func map_level_to_string(level):
-	return "res://Levels/Level1_0world.tscn"
+	if level==1:
+		return "res://Levels/Level1_0World.tscn"
+	elif level==2:
+		return "res://Levels/Level2World.tscn"
+	elif level==3:
+		return "res://Levels/Level3World.tscn"
+	elif level==4:
+		return "res://Levels/Level4World.tscn"
+	elif level==5:
+		return "res://Levels/Level5World.tscn"
+	else:
+		return "res://Levels/Level5World.tscn" 
 
 func load_level(level):
 	player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]

@@ -40,9 +40,18 @@ func _on_PlayButton_button_up():
 
 
 func map_level_to_string(level):
-	if level == 1:
-		return "res://Levels/Level1_0world.tscn"
-	return "res://Levels/Level1_0world.tscn"
+	if level==1:
+		return "res://Levels/Level1_0World.tscn"
+	elif level==2:
+		return "res://Levels/Level2World.tscn"
+	elif level==3:
+		return "res://Levels/Level3World.tscn"
+	elif level==4:
+		return "res://Levels/Level4World.tscn"
+	elif level==5:
+		return "res://Levels/Level5World.tscn"
+	else:
+		return "res://Levels/Level5World.tscn" 
 
 func _on_ExitButton_button_up():
 	get_tree().quit()
