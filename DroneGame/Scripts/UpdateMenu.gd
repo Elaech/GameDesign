@@ -87,6 +87,7 @@ func _on_Reset_button_up():
 	player_data[LIFE_UP] = 0
 	player_data[DMG_UP] = 0
 	player_data[IMMUNITY_UP] = 0
+	player_data[MAX_HEALTH] = life_base
 	current_damage_cost.text = str(1) 
 	current_life_cost.text = str(1) 
 	current_immunity_cost.text = str(1) 
@@ -100,6 +101,7 @@ func _on_LifeButton_button_up():
 		current_currency.text = str(player_data[CC])
 		current_life_cost.text = str((player_data[LIFE_UP]+1))
 		current_life.text = str(calculate_life())
+		player_data[MAX_HEALTH] = calculate_life()
 		save_player_data()
 		
 func _on_DamageButton_button_up():

@@ -4,11 +4,12 @@ extends KinematicBody2D
 signal player_dies
 var MAX_LIFE = 500
 var LIFE = 500
+var DAMAGE = 10
 var FRICTION = 0.03
 var GRAVITY = 80
 var MAX_SPEED = 100
 var CANNON_FORCE = 60
-var hurtbox_disable_time = 1
+var IMMUNITY_TIME = 1
 var next_cannon_timer_wait_time = 0.5
 var cannon_switch_time = 1
 var up_motion_multi = 1.25
@@ -32,8 +33,12 @@ onready var camera=  get_node("Camera2D")
 onready var hurtbox_collision =  get_node("Hurtbox/CollisionShape2D")
 onready var hurtbox = get_node("Hurtbox")
 onready var healthbar = get_node("UI/Healthbar")
+
 func _ready():
 	cannon_timer.start(next_cannon_timer_wait_time)
+	update_healthbar()
+
+func update_healthbar():
 	healthbar.update_max_health(MAX_LIFE)
 	healthbar.update_health(LIFE)
 
@@ -131,7 +136,7 @@ func load_cannon(index):
 		CANNON_FORCE = 20
 		GRAVITY = 40
 		next_cannon_timer_wait_time = 0.3
-		cannon_damage = 10
+		cannon_damage = DAMAGE
 		up_motion_multi = 1
 		down_motion_multi = 0.4
 		left_motion_multi = 1.5
@@ -144,7 +149,7 @@ func load_cannon(index):
 		CANNON_FORCE = 80
 		GRAVITY = 80
 		next_cannon_timer_wait_time = 0.5
-		cannon_damage = 25
+		cannon_damage = 2.5 * DAMAGE
 		up_motion_multi = 1.25
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25
@@ -157,7 +162,7 @@ func load_cannon(index):
 		CANNON_FORCE = 200
 		GRAVITY = 120
 		next_cannon_timer_wait_time = 0.7
-		cannon_damage = 50
+		cannon_damage = 5*DAMAGE
 		up_motion_multi = 1.25
 		down_motion_multi = 0.5
 		left_motion_multi = 1.25
@@ -185,7 +190,7 @@ func take_damage(damage):
 			emit_signal("player_dies")
 		else:
 			set_deferred("hurtbox.monitoring", false)
-			hurtbox_timer.start(hurtbox_disable_time)
+			hurtbox_timer.start(IMMUNITY_TIME)
 			var aux_timer = Timer.new()
 			self.add_child(aux_timer)
 			var colored = true

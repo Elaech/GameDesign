@@ -10,6 +10,9 @@ const TAKEN_RESOURCES = "taken_resources"
 const PATH_TO_SAVE = "user://save.dat"
 const PASSWORD = "10293847"
 const SAVE_VERSION = "version"
+const LIFE_UP = "life_upgrade"
+const DMG_UP = "damage_upgrade"
+const IMMUNITY_UP = "immunity_upgrade"
 const CURRENT_VERSION = 1
 var LEVEL
 var START_PLAYER_POS
@@ -54,11 +57,30 @@ func _process(delta):
 
 func init_level():
 	pause_menu.hide()
+	init_player_stats()
 	self.LEVEL = level_info.LEVEL
 	self.START_PLAYER_POS =  level_info.START_PLAYER_POS
 	self.NEXT_LEVEL = level_info.NEXT_LEVEL
 	init_resources()
 
+func init_player_stats():
+	player.DAMAGE = calculate_damage()
+	player.MAX_LIFE = calculate_life()
+	player.LIFE = player.MAX_LIFE
+	player.IMMUNITY_TIME = calculate_immunity()
+	player.update_healthbar()
+
+func calculate_damage():
+	return 10+3*player_data[DMG_UP]+0.3*gauss(player_data[DMG_UP]-1)
+
+func calculate_life():
+	return 500+100*player_data[LIFE_UP]+10*gauss(player_data[LIFE_UP]-1)
+
+func calculate_immunity():
+	return 1+0.1*player_data[IMMUNITY_UP]+0.01*gauss(player_data[IMMUNITY_UP]-1)
+
+func gauss(n):
+	return n*(n+1)/2
 
 
 func reached_checkpoint(checkpoint):
