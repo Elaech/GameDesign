@@ -198,11 +198,11 @@ func take_damage(damage):
 				if colored:
 					colored = false
 					player_sprite.modulate = Color(1,0.125,0.125,0.666)
-					aux_timer.start(hurtbox_timer.time_left/2)
+					aux_timer.start(hurtbox_timer.time_left/4)
 				else:
 					colored = true
 					player_sprite.modulate = Color(1,1,1,0.8)
-					aux_timer.start(hurtbox_timer.time_left/3)
+					aux_timer.start(hurtbox_timer.time_left/5)
 				yield(aux_timer,"timeout")
 			aux_timer.queue_free()
 

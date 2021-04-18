@@ -77,7 +77,7 @@ func load_player_data():
 	
 func new_player_data():
 	player_data = {
-		"CC" : 500,
+		"CC" : 0,
 		"unlocked_levels" : [1],
 		"max_health" : 500,
 		"damage_upgrade": 0,

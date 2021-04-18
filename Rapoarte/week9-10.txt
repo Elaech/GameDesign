@@ -1,0 +1,16 @@
+week9-10
+Comun
+Decizii de design, planificari activitati independente
+Finisare nivel 2
+
+Minut Mihai
+Modificari Generale Nivele
+Design Meniu Upgrades
+Implementare Meniu Upgrades
+Implementarea Portale Sfarsit Nivel
+Creare templates pentru fiecare Nivel
+
+Cretu Bogdan
+Design Inamic Shooter 
+Implementare inamic Shooter si gloantele acestuaia
+Testare interactiune inamic Shooter cu Sprite-uri temporare
