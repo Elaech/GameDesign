@@ -46,7 +46,7 @@ func save_player_data():
 
 func map_level_to_string(level):
 	if level==1:
-		return "res://Levels/Level1_0World.tscn"
+		return "res://Levels/Level1_0world.tscn"
 	elif level==2:
 		return "res://Levels/Level2World.tscn"
 	elif level==3:
