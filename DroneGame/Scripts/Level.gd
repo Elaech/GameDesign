@@ -44,8 +44,7 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_ESCAPE) and escape_timer.is_stopped():
-		print("here")
+	if Input.is_action_pressed("pause") and escape_timer.is_stopped():
 		if game_pause:
 			pause_menu.hide()
 			game_pause = false

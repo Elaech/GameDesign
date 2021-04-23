@@ -11,7 +11,7 @@ var MAX_SPEED = 100
 var CANNON_FORCE = 60
 var IMMUNITY_TIME = 1
 var next_cannon_timer_wait_time = 0.5
-var cannon_switch_time = 1
+var cannon_switch_time = 0.3
 var up_motion_multi = 1.25
 var down_motion_multi = 0.5
 var left_motion_multi = 1.25
@@ -43,7 +43,7 @@ func update_healthbar():
 	healthbar.update_health(LIFE)
 
 func _physics_process(delta):
-	if Input.is_key_pressed(KEY_R) and cannon_switch_timer.is_stopped():
+	if Input.is_action_pressed("cannon_switch") and cannon_switch_timer.is_stopped():
 		if cannon_active:
 			cannon_active = false
 			GRAVITY = 80
@@ -100,31 +100,31 @@ func _on_CannonSwitchTimer_timeout():
 	cannon_switch_timer.stop()
 
 func check_change_direction():
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_action_pressed("cannon_left"):
 		player_watches(Vector2.RIGHT)
 		propulsion_direction = Vector2.RIGHT
-	elif Input.is_key_pressed(KEY_D):
+	elif Input.is_action_pressed("cannon_right"):
 		player_watches(Vector2.LEFT)
 		propulsion_direction = Vector2.LEFT
-	elif Input.is_key_pressed(KEY_S):
+	elif Input.is_action_pressed("cannon_down"):
 		player_watches(Vector2.UP)
 		propulsion_direction = Vector2.UP
-	elif Input.is_key_pressed(KEY_W):
+	elif Input.is_action_pressed("cannon_up"):
 		player_watches(Vector2.DOWN)
 		propulsion_direction= Vector2.DOWN
 
 func check_change_cannonmode():
-	if Input.is_key_pressed(KEY_1):
+	if Input.is_action_pressed("cannon_1"):
 		if cannon_active:
 			load_cannon(1)
 		else:
 			cannon_mode = 1
-	elif Input.is_key_pressed(KEY_2):
+	elif Input.is_action_pressed("cannon_2"):
 		if cannon_active:
 			load_cannon(2)
 		else:
 			cannon_mode = 2
-	elif Input.is_key_pressed(KEY_3):
+	elif Input.is_action_pressed("cannon_3"):
 		if cannon_active:
 			load_cannon(3)
 		else:

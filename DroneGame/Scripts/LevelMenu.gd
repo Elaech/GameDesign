@@ -59,10 +59,11 @@ func map_level_to_string(level):
 		return "res://Levels/Level5World.tscn" 
 
 func load_level(level):
-	player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
-	player_data[CURRENT_CHECKPOINT] = null
-	save_player_data()
-	get_tree().change_scene(map_level_to_string(level))
+	if level in player_data[UNLOCKED_LVL]:
+		player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
+		player_data[CURRENT_CHECKPOINT] = null
+		save_player_data()
+		get_tree().change_scene(map_level_to_string(level))
 
 
 func _on_Button_button_up():
