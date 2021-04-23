@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Options.gd" type="Script" id=1]
+[ext_resource path="res://Textures/MenuTile.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 9
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 9
+font_data = ExtResource( 3 )
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -11,5 +32,433 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
+margin_left = -5.0
+margin_top = -3.0
+margin_right = 365.0
+margin_bottom = 181.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="BackButton" type="Button" parent="Back"]
+margin_left = 2.0
+margin_top = 150.0
+margin_right = 63.0
+margin_bottom = 177.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Back/BackButton"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 56.0
+margin_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0.756863, 1, 1 )
+text = "Back"
+align = 1
+valign = 1
+
+[node name="Reset" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ResetButton" type="Button" parent="Reset"]
+margin_left = 286.0
+margin_top = 147.0
+margin_right = 353.0
+margin_bottom = 176.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset/ResetButton"]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 65.0
+margin_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0.756863, 1, 1 )
+text = "Reset"
+align = 1
+valign = 1
+
+[node name="Title" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Title"]
+margin_left = 91.0
+margin_top = 4.0
+margin_right = 274.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0.894118, 1, 1 )
+text = "Change Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemapInputs" type="Control" parent="."]
+margin_left = 7.0
+margin_right = 47.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement" type="Control" parent="RemapInputs"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CannonUP" type="Button" parent="RemapInputs/Movement"]
+margin_left = 57.0
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 57.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Movement/CannonUP"]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 62.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon Up"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Movement/CannonUP"]
+margin_left = 68.0
+margin_top = 4.0
+margin_right = 80.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="CannonDown" type="Button" parent="RemapInputs/Movement"]
+margin_left = 57.0
+margin_top = 60.0
+margin_right = 136.0
+margin_bottom = 80.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Movement/CannonDown"]
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 79.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon Down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Movement/CannonDown"]
+margin_left = 87.0
+margin_top = 4.0
+margin_right = 99.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="CannonRight" type="Button" parent="RemapInputs/Movement"]
+margin_left = 55.0
+margin_top = 111.0
+margin_right = 136.0
+margin_bottom = 131.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Movement/CannonRight"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 80.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon Right"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Movement/CannonRight"]
+margin_left = 85.0
+margin_top = 4.0
+margin_right = 97.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="CannonLeft" type="Button" parent="RemapInputs/Movement"]
+margin_left = 58.0
+margin_top = 86.0
+margin_right = 130.0
+margin_bottom = 106.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Movement/CannonLeft"]
+margin_top = 4.0
+margin_right = 78.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon Left"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Movement/CannonLeft"]
+margin_left = 78.0
+margin_top = 3.0
+margin_right = 90.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="Other" type="Control" parent="RemapInputs"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Pause" type="Button" parent="RemapInputs/Other"]
+margin_left = 199.0
+margin_top = 33.0
+margin_right = 238.0
+margin_bottom = 53.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Other/Pause"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 38.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Other/Pause"]
+margin_left = 43.0
+margin_top = 3.0
+margin_right = 55.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="Cannon Switch" type="Button" parent="RemapInputs/Other"]
+margin_left = 199.0
+margin_top = 57.0
+margin_right = 288.0
+margin_bottom = 77.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Other/Cannon Switch"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 38.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon Switch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Other/Cannon Switch"]
+margin_left = 94.0
+margin_top = 2.0
+margin_right = 106.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="Cannon 1" type="Button" parent="RemapInputs/Other"]
+margin_left = 201.0
+margin_top = 80.0
+margin_right = 254.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Other/Cannon 1"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 52.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Other/Cannon 1"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="Cannon 2" type="Button" parent="RemapInputs/Other"]
+margin_left = 201.0
+margin_top = 104.0
+margin_right = 254.0
+margin_bottom = 124.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Other/Cannon 2"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 52.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Other/Cannon 2"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="Cannon 3" type="Button" parent="RemapInputs/Other"]
+margin_left = 201.0
+margin_top = 129.0
+margin_right = 254.0
+margin_bottom = 149.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="RemapInputs/Other/Cannon 3"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 54.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0.541176, 0, 0, 1 )
+text = "Cannon 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="RemapInputs/Other/Cannon 3"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
+text = "@"
+align = 1
+valign = 1
+[connection signal="button_up" from="Back/BackButton" to="." method="_on_BackButton_button_up"]
+[connection signal="button_up" from="Reset/ResetButton" to="." method="new_player_control_data"]
+[connection signal="button_up" from="RemapInputs/Movement/CannonUP" to="." method="_on_CannonUP_button_up"]
+[connection signal="button_up" from="RemapInputs/Movement/CannonDown" to="." method="_on_CannonDown_button_up"]
+[connection signal="button_up" from="RemapInputs/Movement/CannonRight" to="." method="_on_CannonRight_button_up"]
+[connection signal="button_up" from="RemapInputs/Movement/CannonLeft" to="." method="_on_CannonLeft_button_up"]
+[connection signal="button_up" from="RemapInputs/Other/Pause" to="." method="_on_Pause_button_up"]
+[connection signal="button_up" from="RemapInputs/Other/Cannon Switch" to="." method="_on_Cannon_Switch_button_up"]
+[connection signal="button_up" from="RemapInputs/Other/Cannon 1" to="." method="_on_Cannon_1_button_up"]
+[connection signal="button_up" from="RemapInputs/Other/Cannon 2" to="." method="_on_Cannon_2_button_up"]
+[connection signal="button_up" from="RemapInputs/Other/Cannon 3" to="." method="_on_Cannon_3_button_up"]

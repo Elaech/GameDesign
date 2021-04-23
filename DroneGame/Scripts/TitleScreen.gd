@@ -8,13 +8,14 @@ const CURRENT_CHECKPOINT = "current_checkpoint"
 const CURRENT_LEVEL = "current_level"
 const TAKEN_RESOURCES = "taken_resources"
 const PATH_TO_SAVE = "user://save.dat"
+const PATH_TO_SAVE_CONTROL = "user://controls.dat"
 const PASSWORD = "10293847"
 const SAVE_VERSION = "version"
 # do not change current version 
 # unless you want the save data of players to be deleted
 # the need of this is in case we revert back and must make save data changes
 const CURRENT_VERSION = 2
-
+var control_data
 var player_data
 onready var counter = get_node("CursedChips/HBoxContainer/Counter")
 onready var play_label = get_node("Buttons/PlayButton/Label")
@@ -22,6 +23,8 @@ onready var pause_menu = null
 
 func _ready():
 	load_player_data()
+	load_player_control_data()
+	apply_player_control_data()
 	print(player_data)
 	counter.text = str(player_data["CC"])
 	if(player_data[CURRENT_LEVEL] != null):
@@ -29,6 +32,7 @@ func _ready():
 			play_label.text = "Resume"
 		else:
 			play_label.text = "Continue"
+	
 
 
 
@@ -96,7 +100,43 @@ func new_player_data():
 		file.store_var(player_data)
 		file.close()
 	
+func save_player_control_data():
+	var file = File.new()
+	var error = file.open_encrypted_with_pass(PATH_TO_SAVE_CONTROL,File.WRITE,PASSWORD)
+	if error == OK:
+		file.store_var(control_data)
+		file.close()
+	
+func load_player_control_data():
+	var file = File.new()
+	if (!file.file_exists(PATH_TO_SAVE_CONTROL)):
+		new_player_control_data()
+	var error = file.open_encrypted_with_pass(PATH_TO_SAVE_CONTROL,File.READ,PASSWORD)
+	if error == OK:
+		control_data = file.get_var()
+		file.close()
 
+func apply_player_control_data():
+	for key in control_data.keys():
+		var ev = InputEventKey.new()
+		ev.scancode = control_data[key]
+		InputMap.action_erase_events(key)
+		InputMap.action_add_event(key,ev)
+	
+func new_player_control_data():
+	control_data = {
+		"cannon_up": KEY_W,
+		"cannon_down": KEY_S,
+		"cannon_left": KEY_A,
+		"cannon_right": KEY_D,
+		"pause": KEY_ESCAPE,
+		"cannon_switch": KEY_R,
+		"cannon_1":KEY_1,
+		"cannon_2":KEY_2,
+		"cannon_3":KEY_3
+	}
+	save_player_control_data()
+	
 
 func _on_LevelsButton_button_up():
 	get_tree().change_scene("res://Levels/LevelMenu.tscn")
@@ -104,3 +144,7 @@ func _on_LevelsButton_button_up():
 
 func _on_UpgradesButton_button_up():
 	get_tree().change_scene("res://Levels/UpdateMenu.tscn")
+
+
+func _on_OptionsButton_button_up():
+	get_tree().change_scene("res://Levels/Options.tscn")

@@ -328,6 +328,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CursedChips"]
 position = Vector2( 327.872, 92.4901 )
 frames = SubResource( 16 )
+frame = 2
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CursedChips"]
@@ -353,4 +354,5 @@ __meta__ = {
 [connection signal="button_up" from="Buttons/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="Buttons/LevelsButton" to="." method="_on_LevelsButton_button_up"]
 [connection signal="button_up" from="Buttons/UpgradesButton" to="." method="_on_UpgradesButton_button_up"]
+[connection signal="button_up" from="Buttons/OptionsButton" to="." method="_on_OptionsButton_button_up"]
 [connection signal="button_up" from="Buttons/ExitButton" to="." method="_on_ExitButton_button_up"]
