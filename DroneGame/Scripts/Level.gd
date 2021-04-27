@@ -28,7 +28,9 @@ var player_data
 var checkpoint_data = null
 var current_checkpoint = null
 var not_saved_resources = []
+var not_saved_enemies = []
 var game_pause = false
+var enemy_respawn_position
 
 func _ready():
 	load_player_data()
@@ -63,12 +65,14 @@ func init_level():
 	self.LEVEL = level_info.LEVEL
 	self.START_PLAYER_POS =  level_info.START_PLAYER_POS
 	self.NEXT_LEVEL = level_info.NEXT_LEVEL
+	self.enemy_respawn_position = level_info.RESPAWN
 	init_resources()
 
 func init_player_stats():
 	player.DAMAGE = calculate_damage()
 	player.MAX_LIFE = calculate_life()
 	player.LIFE = player.MAX_LIFE
+	print(player.LIFE)
 	player.IMMUNITY_TIME = calculate_immunity()
 	player.update_healthbar()
 
@@ -91,12 +95,14 @@ func reached_checkpoint(checkpoint):
 			current_checkpoint.deactivate()
 			current_checkpoint = checkpoint
 			save_unsaved_resources()
+			save_killed_enemies()
 			player_data["current_health"] = player.LIFE
 			player_data["current_checkpoint"] = current_checkpoint.checkpoint_number
 			save_player_data()
 			current_checkpoint.activate()
-		elif !not_saved_resources.empty():
+		elif !not_saved_resources.empty() or !not_saved_enemies.empty():
 			save_unsaved_resources()
+			save_killed_enemies()
 			player_data["current_health"] = player.LIFE
 			player_data["current_checkpoint"] = current_checkpoint.checkpoint_number
 			save_player_data()
@@ -104,6 +110,7 @@ func reached_checkpoint(checkpoint):
 	else:
 		current_checkpoint = checkpoint
 		save_unsaved_resources()
+		save_killed_enemies()
 		player_data["current_health"] = player.LIFE
 		player_data["current_checkpoint"] = current_checkpoint.checkpoint_number
 		save_player_data()
@@ -113,16 +120,18 @@ func load_checkpoint():
 	player.cannon_active = false
 	player.motion = Vector2.ZERO
 	respawn_not_saved_resources()
+	respawn_killed_enemies()
 	if current_checkpoint!= null:
 		current_checkpoint.activate()
 		player.global_position = current_checkpoint.global_position
-		player.LIFE = player_data["current_health"]
+		player.LIFE = min(player_data["current_health"],player_data["max_health"])
 		player.update_life(player_data["current_health"])
 	else:
 		player.global_position = START_PLAYER_POS
 		player.LIFE = player_data["max_health"]
 		player.update_life(player_data["max_health"])
-	
+	for enemy in $Pause/Enemies.get_children():
+		enemy.respawn()
 
 func _on_Checkpoint_checkpoint_activated(checkpoint):
 	reached_checkpoint(checkpoint)
@@ -163,6 +172,22 @@ func capture_resource(resource):
 		not_saved_resources.append(resource)
 		despawn_resource(resource)
 	
+func kill_enemy(enemy):
+	if !not_saved_enemies.has(enemy):
+		if current_checkpoint != null:
+			current_checkpoint.progress()
+		not_saved_enemies.append(enemy)
+		enemy.despawn(enemy_respawn_position)
+
+func save_killed_enemies():
+	for enemy in not_saved_enemies:
+		enemy.queue_free()
+	not_saved_enemies = []
+
+func respawn_killed_enemies():
+	for enemy in not_saved_enemies:
+		enemy.respawn()
+	not_saved_enemies = []
 
 func save_unsaved_resources():
 	player_data[CC] += not_saved_resources.size()
@@ -195,12 +220,16 @@ func respawn_not_saved_resources():
 func despawn_resource(resource):
 	resource.visible = false
 
+
 func _on_Player_player_dies():
 	load_checkpoint()
 
 
 func _on_CursedChip_resource_captured(resource):
 	capture_resource(resource)
+
+func _on_enemy_vanquish(enemy):
+	kill_enemy(enemy)
 
 
 func _on_PauseMenu_player_menu_resume():

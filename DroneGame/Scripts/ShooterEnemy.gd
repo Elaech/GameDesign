@@ -5,12 +5,24 @@ onready var BULLET_SCENE = preload("res://WorldObjects/basicBullet.tscn")
 var player = null
 var life = 125
 export var enemy_id = 0
-signal death_occured(enemy_id)
+signal enemy_death(enemy)
+var initial_position = null
 
+func _ready():
+	initial_position = global_position
 
+func despawn(poz):
+	visible = false
+	global_position = poz
+	
+func respawn():
+	global_position = initial_position
+	visible = true
+	
+	
+	
 
 func _physics_process(delta):
-	
 	if player != null:
 		pass
 	
@@ -48,5 +60,5 @@ func _on_Hurtbox_area_entered(area):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			emit_signal("death_occured",self)
+			emit_signal("enemy_death",self)
 			queue_free()

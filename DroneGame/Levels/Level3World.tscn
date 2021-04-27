@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/JungleTileMap.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://WorldObjects/AnimationPortal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/LevelInfo3.gd" type="Script" id=11]
+[ext_resource path="res://WorldObjects/LaserEnemy.tscn" type="PackedScene" id=12]
 
 [node name="Level3World" type="Node2D"]
 pause_mode = 2
@@ -47,6 +48,14 @@ script = ExtResource( 11 )
 
 [node name="Portal" parent="Pause" instance=ExtResource( 9 )]
 position = Vector2( 150.435, -2.3784 )
+
+[node name="LaserPlant" parent="Pause" instance=ExtResource( 12 )]
+position = Vector2( -80.4309, 98.0661 )
+
+[node name="LaserPlant2" parent="Pause" instance=ExtResource( 12 )]
+position = Vector2( -49.2494, 97.1752 )
+fire_rate = 1
+fire_duration = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource( 1 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -66,7 +66,7 @@ rotation = 1.5708
 [node name="Resources" type="Node2D" parent="Pause"]
 
 [node name="CursedChip" parent="Pause/Resources" instance=ExtResource( 13 )]
-position = Vector2( -436, -762.368 )
+position = Vector2( -437.335, -761.033 )
 
 [node name="CursedChip2" parent="Pause/Resources" instance=ExtResource( 13 )]
 position = Vector2( -17.5654, -470.104 )
@@ -105,19 +105,22 @@ checkpoint_number = 2
 position = Vector2( 1948.52, 1437.07 )
 checkpoint_number = 3
 
-[node name="Bees" type="Node2D" parent="Pause"]
+[node name="Enemies" type="Node2D" parent="Pause"]
 
-[node name="Bumper" parent="Pause/Bees" instance=ExtResource( 7 )]
+[node name="Bumper" parent="Pause/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 452, 323 )
 
-[node name="Bumper2" parent="Pause/Bees" instance=ExtResource( 7 )]
+[node name="Bumper2" parent="Pause/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 478, 321 )
+enemy_id = 1
 
-[node name="Bumper3" parent="Pause/Bees" instance=ExtResource( 7 )]
+[node name="Bumper3" parent="Pause/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 480, 325 )
+enemy_id = 2
 
-[node name="Bumper4" parent="Pause/Bees" instance=ExtResource( 7 )]
+[node name="Bumper4" parent="Pause/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 785, 413 )
+enemy_id = 3
 
 [node name="LevelInfo" type="Node2D" parent="Pause"]
 script = ExtResource( 11 )
@@ -139,6 +142,10 @@ position = Vector2( 1726.08, 2512.94 )
 [connection signal="checkpoint_activated" from="Pause/Checkpoints/Checkpoint2" to="." method="_on_Checkpoint_checkpoint_activated"]
 [connection signal="checkpoint_activated" from="Pause/Checkpoints/Checkpoint3" to="." method="_on_Checkpoint_checkpoint_activated"]
 [connection signal="checkpoint_activated" from="Pause/Checkpoints/Checkpoint4" to="." method="_on_Checkpoint_checkpoint_activated"]
+[connection signal="enemy_death" from="Pause/Enemies/Bumper" to="." method="_on_enemy_vanquish"]
+[connection signal="enemy_death" from="Pause/Enemies/Bumper2" to="." method="_on_enemy_vanquish"]
+[connection signal="enemy_death" from="Pause/Enemies/Bumper3" to="." method="_on_enemy_vanquish"]
+[connection signal="enemy_death" from="Pause/Enemies/Bumper4" to="." method="_on_enemy_vanquish"]
 [connection signal="player_dies" from="Pause/Player" to="." method="_on_Player_player_dies"]
 [connection signal="level_finished" from="Pause/Portal" to="." method="_on_Portal_level_finished"]
 [connection signal="player_menu_exit" from="PauseMenu" to="." method="_on_PauseMenu_player_menu_exit"]
