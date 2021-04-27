@@ -4,8 +4,9 @@ onready var sprite = get_node("AnimatedSprite")
 onready var BULLET_SCENE = preload("res://WorldObjects/basicBullet.tscn")
 var player = null
 var life = 125
-export var tower_number = 0
-signal death_occured(tower_number)
+export var enemy_id = 0
+signal death_occured(enemy_id)
+
 
 
 func _physics_process(delta):
