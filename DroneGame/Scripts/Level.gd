@@ -115,6 +115,8 @@ func reached_checkpoint(checkpoint):
 		player_data["current_checkpoint"] = current_checkpoint.checkpoint_number
 		save_player_data()
 		current_checkpoint.activate()
+	for enemy in $Pause/Enemies.get_children():
+		enemy.respawn()
 
 func load_checkpoint():
 	player.cannon_active = false

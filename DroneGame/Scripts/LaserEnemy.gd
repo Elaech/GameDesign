@@ -3,12 +3,11 @@ extends KinematicBody2D
 
 signal enemy_death(enemy)
 export var enemy_id = 0
-export var initial_delay = 3
-export var fire_rate = 3
-export var fire_duration = 3
+export var animation_speed = 1.0
+export var initial_delay = 3.0
+export var fire_rate = 3.0
+export var fire_duration = 3.0
 export var is_moving = false
-export var move_speed = 100
-export var moving_duration = 2
 export var width = 10.0
 var initial_position = null
 var life = 200
@@ -26,6 +25,7 @@ func respawn():
 func _ready():
 	$FireTimer.start(initial_delay)
 	$AnimatedSprite.animation = "Idle"
+	$AnimatedSprite.speed_scale = animation_speed
 	initial_position = global_position
 	$RayCast2D.width = self.width
 
