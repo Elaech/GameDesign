@@ -1,0 +1,17 @@
+Common:
+Planning activity and content
+
+Minut Mihai:
+Sistem Respawn Inamici
+Meniu si functionalitati - Schimbari Taste
+Dark Laser Plant Enemy Design
+Dark Laser Plant Assets Creation
+Dark Laser Plant Enemy Implementation
+Level 3 Prototype
+
+Cretu Bogdan
+Shooter Blue Plant Enemy Design
+Shooter Blue Plant Assets Creation
+Shooter Blue Plant Enemy Implementation
+Started Work on Level 4
+Testing sound variants for drone/ BG music
