@@ -39,7 +39,6 @@ hframes = 2
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -0.5 )
 scale = Vector2( 1.8, 1.8 )
 shape = SubResource( 1 )
@@ -51,7 +50,6 @@ shape = SubResource( 1 )
 [node name="ShootingPoint" type="Position2D" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -0.5 )
 monitorable = false
 collision_layer = 0
