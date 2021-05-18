@@ -1,6 +1,7 @@
 extends Control
 
 const CC = "CC"
+const KILLED_ENEMIES = "killed_enemies"
 const UNLOCKED_LVL = "unlocked_levels"
 const MAX_HEALTH = "max_health"
 const DAMAGE_FACTOR = "damage_factor"

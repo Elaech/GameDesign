@@ -1,6 +1,7 @@
 extends Node2D
 
 const CC = "CC"
+const KILLED_ENEMIES = "killed_enemies"
 const UNLOCKED_LVL = "unlocked_levels"
 const MAX_HEALTH = "max_health"
 const CURRENT_HEALTH = "current_health"
@@ -122,7 +123,7 @@ func load_checkpoint():
 	player.cannon_active = false
 	player.motion = Vector2.ZERO
 	respawn_not_saved_resources()
-	respawn_killed_enemies()
+	respawn_not_saved_killed_enemies()
 	if current_checkpoint!= null:
 		current_checkpoint.activate()
 		player.global_position = current_checkpoint.global_position
@@ -186,7 +187,7 @@ func save_killed_enemies():
 		enemy.queue_free()
 	not_saved_enemies = []
 
-func respawn_killed_enemies():
+func respawn_not_saved_killed_enemies():
 	for enemy in not_saved_enemies:
 		enemy.respawn()
 	not_saved_enemies = []

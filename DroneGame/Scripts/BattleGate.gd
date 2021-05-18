@@ -8,7 +8,6 @@ onready var collision = $CollisionShape2D
 
 
 func _ready():
-	print(battle_targets.size())
 	if battle_targets.size() <= 0:
 		open()
 	remaining = battle_targets.size()
