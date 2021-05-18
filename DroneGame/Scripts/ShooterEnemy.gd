@@ -18,14 +18,6 @@ func despawn(poz):
 func respawn():
 	global_position = initial_position
 	visible = true
-	
-	
-	
-
-func _physics_process(delta):
-	if player != null:
-		pass
-	
 
 func _on_Area2D_body_entered(body):
 	if body != self:

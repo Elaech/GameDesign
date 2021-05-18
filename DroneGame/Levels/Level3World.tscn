@@ -478,6 +478,7 @@ position = Vector2( -692.634, 1067.79 )
 enemy_id = 47
 
 [node name="Player" parent="Pause" instance=ExtResource( 8 )]
+position = Vector2( 894, -196 )
 
 [node name="Portal" parent="Pause" instance=ExtResource( 9 )]
 position = Vector2( -1211.28, 958.372 )

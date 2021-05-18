@@ -6,6 +6,7 @@ var player = null
 var speed = 2
 var damage = 50
 var initial_position = null
+var time = 0.05
 
 func despawn(poz):
 	visible = false
@@ -17,6 +18,8 @@ func respawn():
 
 
 func _ready():
+	$CollisionShape2D.set_deferred("disabled",true)
+	$Timer.start(time)
 	initial_position = global_position
 	look_vec = player.position - global_position
 	
@@ -33,3 +36,8 @@ func get_damage():
 func _on_Area2D_body_entered(body):
 	queue_free()
 
+
+
+func _on_Timer_timeout():
+	$Timer.stop()
+	$CollisionShape2D.set_deferred("disabled",false)
