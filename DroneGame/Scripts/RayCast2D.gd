@@ -5,6 +5,7 @@ var width = float(10.0)
 
 func _ready():
 	set_physics_process(false)
+	width = get_parent().width
 	$Line2D.points[1] = Vector2.ZERO
 	$Line2D2.points[1] = Vector2.ZERO
 	$Hitbox/CollisionShape2D.shape = RectangleShape2D.new()

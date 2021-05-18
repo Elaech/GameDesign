@@ -27,7 +27,6 @@ func _ready():
 	$AnimatedSprite.animation = "Idle"
 	$AnimatedSprite.speed_scale = animation_speed
 	initial_position = global_position
-	$RayCast2D.width = self.width
 
 func _on_FireTimer_timeout():
 	$FireTimer.stop()
