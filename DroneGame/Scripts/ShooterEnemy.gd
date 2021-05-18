@@ -45,7 +45,6 @@ func _on_Timer_timeout():
 func _on_Hurtbox_area_entered(area):
 	if area.has_method("get_damage"):
 		life = life - area.get_damage()
-		print(life)
 		if life <= 0:
 			sprite.play("Death")
 			var t = Timer.new()
