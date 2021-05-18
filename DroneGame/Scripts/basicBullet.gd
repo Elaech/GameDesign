@@ -5,8 +5,19 @@ var look_vec = Vector2.ZERO
 var player = null
 var speed = 2
 var damage = 50
-func _ready():
+var initial_position = null
+
+func despawn(poz):
+	visible = false
+	global_position = poz
 	
+func respawn():
+	global_position = initial_position
+	visible = true
+
+
+func _ready():
+	initial_position = global_position
 	look_vec = player.position - global_position
 	
 func _physics_process(delta):

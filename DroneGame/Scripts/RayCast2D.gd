@@ -9,24 +9,20 @@ func _ready():
 	$Line2D2.points[1] = Vector2.ZERO
 	$Hitbox/CollisionShape2D.shape = RectangleShape2D.new()
 	$Hitbox/CollisionShape2D.disabled = true
-	
-
-func _physics_process(delta):
 	$Line2D.width = width/2.0
 	$Line2D2.width = width
+	disappear()
 	var cast_point := cast_to
 	force_raycast_update()
 	
-	if is_colliding():
-		cast_point = to_local(get_collision_point())
-		$Line2D.points[1] = cast_point
-		$Line2D2.points[1] = cast_point
-		
-	else:
-		$Line2D.points[1] = Vector2(0,-1000)
-		$Line2D2.points[1] = Vector2(0,-1000)
+	while !is_colliding():
+		pass
+	cast_point = to_local(get_collision_point())
+	$Line2D.points[1] = cast_point
+	$Line2D2.points[1] = cast_point
 	$Hitbox/CollisionShape2D.position = Vector2(($Line2D.points[0].x+$Line2D.points[1].x)/2.0,($Line2D.points[0].y+$Line2D.points[1].y)/2.0)
 	$Hitbox/CollisionShape2D.shape.extents = Vector2(width/2.0,abs($Line2D.points[0].y-$Line2D.points[1].y)/2.0)
+	
 
 func set_is_casting(cast: bool):
 	is_casting = cast
