@@ -38,11 +38,13 @@ func _ready():
 	init_level()
 	if player_data[CURRENT_LEVEL] == LEVEL and player_data["current_checkpoint"] != null:
 		load_checkpoint_from_save()
+		kill_killed_enemies()
 		load_checkpoint()
 	else:
 		player_data[CURRENT_LEVEL] = LEVEL
 		player_data[CURRENT_CHECKPOINT] = null
 		player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
+		player_data[KILLED_ENEMIES] = []
 		save_player_data()
 
 
@@ -184,8 +186,16 @@ func kill_enemy(enemy):
 
 func save_killed_enemies():
 	for enemy in not_saved_enemies:
+		player_data[KILLED_ENEMIES].append(enemy.enemy_id)
 		enemy.queue_free()
 	not_saved_enemies = []
+
+func kill_killed_enemies():
+	for enemy in $Pause/Enemies.get_children():
+		if enemy.enemy_id in player_data[KILLED_ENEMIES]:
+			enemy.queue_free()
+	
+
 
 func respawn_not_saved_killed_enemies():
 	for enemy in not_saved_enemies:

@@ -91,7 +91,7 @@ func new_player_data():
 		"current_level": null,
 		"current_health" : null,
 		"taken_resources" : null,
-		"killed_enemies" : null,
+		"killed_enemies" : [],
 		"version": CURRENT_VERSION
 	}
 	var file = File.new()

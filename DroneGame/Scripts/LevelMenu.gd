@@ -63,6 +63,7 @@ func load_level(level):
 	if level in player_data[UNLOCKED_LVL]:
 		player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
 		player_data[CURRENT_CHECKPOINT] = null
+		player_data[KILLED_ENEMIES] = []
 		save_player_data()
 		get_tree().change_scene(map_level_to_string(level))
 
