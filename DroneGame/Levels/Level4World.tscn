@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/JungleTileMap.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=11]
 [ext_resource path="res://WorldObjects/ShooterEnemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://WorldObjects/BumpEnemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://WorldObjects/LaserEnemy.tscn" type="PackedScene" id=14]
 
 [node name="Level4World" type="Node2D"]
 pause_mode = 2
@@ -99,6 +100,125 @@ position = Vector2( 1886.89, 103.065 )
 
 [node name="Bumper7" parent="Pause/Enemies" instance=ExtResource( 13 )]
 position = Vector2( 1814.22, 120.295 )
+
+[node name="Bumper8" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3540.97, 291.88 )
+
+[node name="Bumper9" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3473.95, 327.747 )
+
+[node name="Bumper10" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3567.4, 373.053 )
+
+[node name="Bumper11" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 1824.58, -1094.82 )
+
+[node name="Bumper12" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 1809.99, -1029.72 )
+
+[node name="Bumper13" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2697.86, -1080.23 )
+
+[node name="Bumper14" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2720.31, -1035.33 )
+
+[node name="Bumper15" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2297.21, 720.977 )
+
+[node name="Bumper16" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2205.28, 787.445 )
+
+[node name="Bumper17" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2184.07, 623.396 )
+
+[node name="Bumper18" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2087.9, 750.675 )
+
+[node name="Bumper19" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2302.86, 633.295 )
+
+[node name="Bumper20" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3595.27, -724.746 )
+
+[node name="Bumper21" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3572.8, -768.197 )
+
+[node name="Bumper22" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3566.8, -730.739 )
+
+[node name="Bumper23" parent="Pause/Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3278.38, -810.624 )
+
+[node name="LaserPlant2" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 252.633, 90.9201 )
+initial_delay = 2.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant3" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 273.742, 91.5147 )
+initial_delay = 3.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant4" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 297.229, 90.9201 )
+initial_delay = 4.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant5" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 321.013, 90.3255 )
+initial_delay = 5.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant6" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 341.229, 90.0282 )
+initial_delay = 6.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant7" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 362.338, 90.3255 )
+initial_delay = 7.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant8" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 392.068, 97.4607 )
+initial_delay = 8.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant9" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 426.852, 105.488 )
+initial_delay = 9.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant10" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 231.228, 90.6228 )
+initial_delay = 1.0
+fire_rate = 1.0
+fire_duration = 1.0
+
+[node name="LaserPlant11" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 2186.4, -81.7057 )
+rotation = 1.93732
+initial_delay = 1.0
+fire_rate = 1.0
+fire_duration = 1.0
+width = 55.0
+
+[node name="LaserPlant12" parent="Pause/Enemies" instance=ExtResource( 14 )]
+position = Vector2( 2370.35, -29.419 )
+rotation = -1.5865
+animation_speed = 0.25
+initial_delay = 1.0
+fire_rate = 1.0
+fire_duration = 1.0
+width = 55.0
 
 [node name="Player" parent="Pause" instance=ExtResource( 9 )]
 
