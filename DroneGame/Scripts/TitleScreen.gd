@@ -14,7 +14,7 @@ const SAVE_VERSION = "version"
 # do not change current version 
 # unless you want the save data of players to be deleted
 # the need of this is in case we revert back and must make save data changes
-const CURRENT_VERSION = 2
+const CURRENT_VERSION = 3
 var control_data
 var player_data
 onready var counter = get_node("CursedChips/HBoxContainer/Counter")
@@ -81,8 +81,8 @@ func load_player_data():
 	
 func new_player_data():
 	player_data = {
-		"CC" : 550,
-		"unlocked_levels" : [1,2],
+		"CC" : 10000,
+		"unlocked_levels" : [1,2,3,4,5],
 		"max_health" : 500,
 		"damage_upgrade": 0,
 		"life_upgrade": 0,
