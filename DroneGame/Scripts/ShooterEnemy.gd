@@ -16,6 +16,7 @@ func despawn(poz):
 	global_position = poz
 	
 func respawn():
+	$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 	global_position = initial_position
 	visible = true
 
@@ -47,6 +48,7 @@ func _on_Hurtbox_area_entered(area):
 		life = life - area.get_damage()
 		if life <= 0:
 			sprite.play("Death")
+			$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
 			var t = Timer.new()
 			t.set_wait_time(0.6)
 			t.set_one_shot(true)
