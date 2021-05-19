@@ -7,7 +7,9 @@ Meniu si functionalitati - Schimbari Taste
 Dark Laser Plant Enemy Design
 Dark Laser Plant Assets Creation
 Dark Laser Plant Enemy Implementation
-Level 3 Prototype
+Level 3 Finished
+Refactoring of Code
+Improved code performance for: LaserPlant, Bee and TowerShooter
 
 Cretu Bogdan
 Shooter Blue Plant Enemy Design
