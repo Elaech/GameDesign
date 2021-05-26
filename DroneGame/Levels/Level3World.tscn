@@ -262,7 +262,6 @@ rotation = 3.14159
 enemy_id = 80
 initial_delay = 1.0
 fire_rate = 2.0
-width = 10.0
 
 [node name="LaserPlant4" parent="Pause/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -1064.81, -211.611 )
@@ -281,7 +280,6 @@ animation_speed = 3.0
 initial_delay = 1.0
 fire_rate = 1.0
 fire_duration = 2.0
-width = 10.0
 
 [node name="LaserPlant23" parent="Pause/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -1321.39, 483.185 )
@@ -290,7 +288,6 @@ enemy_id = 85
 animation_speed = 3.0
 initial_delay = 1.0
 fire_rate = 1.0
-fire_duration = 3.0
 width = 16.0
 
 [node name="LaserPlant2" parent="Pause/Enemies" instance=ExtResource( 12 )]
@@ -384,7 +381,6 @@ width = 30.0
 position = Vector2( -309.94, -358.196 )
 rotation = -0.785398
 enemy_id = 75
-animation_speed = 1.0
 initial_delay = 1.0
 fire_rate = 2.0
 fire_duration = 4.0
@@ -497,7 +493,6 @@ enemy_id = 101
 animation_speed = 2.0
 initial_delay = 1.0
 fire_rate = 2.0
-fire_duration = 3.0
 width = 20.0
 
 [node name="LaserPlant31" parent="Pause/Enemies" instance=ExtResource( 12 )]
@@ -524,21 +519,13 @@ width = 40.0
 position = Vector2( -1429.94, 265.667 )
 rotation = 3.92699
 enemy_id = 105
-animation_speed = 1.0
 initial_delay = 1.0
-fire_rate = 3.0
-fire_duration = 3.0
-width = 10.0
 
 [node name="LaserPlant30" parent="Pause/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -1396.17, -91.9767 )
 rotation = 3.92699
 enemy_id = 106
-animation_speed = 1.0
 initial_delay = 4.0
-fire_rate = 3.0
-fire_duration = 3.0
-width = 10.0
 
 [node name="LaserPlant25" parent="Pause/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -141.094, 921.367 )
@@ -706,7 +693,6 @@ position = Vector2( -692.634, 1067.79 )
 enemy_id = 47
 
 [node name="Player" parent="Pause" instance=ExtResource( 8 )]
-position = Vector2( 323.369, 357.192 )
 
 [node name="Portal" parent="Pause" instance=ExtResource( 9 )]
 position = Vector2( -1211.28, 958.372 )
