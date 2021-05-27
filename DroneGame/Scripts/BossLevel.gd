@@ -31,6 +31,12 @@ var not_saved_resources = []
 var not_saved_enemies = []
 var game_pause = false
 
+var gate_list
+var detection_zones
+var movable_position = Vector2(-500,500)
+var current_zone = 0
+
+
 func _ready():
 	load_player_data()
 	init_level()
@@ -39,7 +45,35 @@ func _ready():
 	player_data[CURRENT_HEALTH] = player_data[MAX_HEALTH]
 	player_data[KILLED_ENEMIES] = []
 	save_player_data()
+	initial_despawn()
 
+
+func initial_despawn():
+	gate_list = $Pause/Gates.get_children()
+	despawn(gate_list[3])
+	for cc in $Pause/Resources.get_children():
+		despawn(cc)
+	despawn($Pause/Portal)
+	for enemy in $Pause/Enemies.get_children():
+		despawn(enemy)
+	for enemy in $Pause/Enemies1.get_children():
+		despawn(enemy)
+	for enemy in $Pause/Enemies2.get_children():
+		despawn(enemy)
+	detection_zones = $Pause/Detection.get_children()
+	for det in detection_zones:
+		if det.get_id() !=0:
+			despawn(det)
+
+func despawn(it):
+	if "make_noise" in it:
+		it.make_noise = false
+	it.position +=movable_position
+
+func evoke(it):
+	if "make_noise" in it:
+		it.make_noise = true
+	it.position -=movable_position
 
 func _process(delta):
 	if Input.is_action_pressed("pause") and escape_timer.is_stopped():
@@ -158,6 +192,25 @@ func _on_Portal_level_finished():
 
 func _on_Boss_boss_death(boss):
 	$Pause/Boss.queue_free()
-	for child in $Pause/Resources.get_children():
-		child.position += Vector2(0,-450)
-	$Pause/Portal.position += Vector2(0,-450)
+	for cc in $Pause/Resources.get_children():
+		evoke(cc)
+	for enemy in $Pause/Enemies.get_children():
+		if "enemy_id" in enemy and enemy.enemy_id == 999:
+			enemy.emit_signal("enemy_death",enemy)
+			enemy.queue_free()
+		despawn(enemy)
+	for enemy in $Pause/Enemies1.get_children():
+		despawn(enemy)
+	for enemy in $Pause/Enemies2.get_children():
+		despawn(enemy)
+	evoke($Pause/Portal/portal)
+
+
+func _on_Boss_boss_chunked():
+	return
+	$Pause/Boss.untargetable()
+
+func _on_PlayerDetectionZone_player_here(zone):
+	if zone.ID == 0:
+		zone.queue_free()
+		evoke(gate_list[3])

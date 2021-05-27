@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 export var enemy_id = 0
+var make_noise = true
 signal enemy_death(enemy)
 var damage = 100
 var life = 100
@@ -33,7 +34,7 @@ func _process(_delta):
 		motion.x += rng.randf_range(-1,1) * BUMP_SPEED
 		motion.y += rng.randf_range(-1,1) * BUMP_SPEED
 		adapt_sprite()
-	else:
+	elif make_noise:
 		motion.x += rng.randf_range(-1,1) * WANDER_SPEED
 		motion.y += rng.randf_range(-1,1) * WANDER_SPEED
 	

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal boss_death(boss)
+signal boss_chunked
 
 var disk_rotation_speed
 var disk_rev_rotation_speed = -0.5
@@ -8,8 +9,8 @@ var disk_norm_rotation_speed = 0.1
 var spin_time = 3
 var spin_back_time = 2
 var speed_multi = 1
-
-
+var next_target_life = 9
+var chunk = 1
 var life = 10
 
 func _ready():
@@ -39,5 +40,19 @@ func get_damage():
 func _on_Hurtbox_area_entered(area):
 	if area.has_method("get_damage"):
 		life = life - area.get_damage()
-		if life <= 0:
+		if life <= 0 and next_target_life<=0:
 			emit_signal("boss_death",self)
+		elif life < next_target_life:
+			life = next_target_life
+			next_target_life -= chunk
+			emit_signal("boss_chunked")
+
+func targetable():
+	$Eyes.modulate = Color(1,1,1,1)
+	$Disk.modulate = Color(1,1,1,1)
+	$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
+
+func untargetable():
+	$Eyes.modulate = Color(1,0,0,1)
+	$Disk.modulate = Color(1,1,1,0.25)
+	$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
