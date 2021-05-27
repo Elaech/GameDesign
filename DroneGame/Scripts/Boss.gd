@@ -9,7 +9,8 @@ var spin_time = 3
 var spin_back_time = 2
 var speed_multi = 1
 
-var life = 10000
+
+var life = 10
 
 func _ready():
 	$RotationTimer.start(spin_time)
