@@ -8,6 +8,9 @@ export var enemy_id = 0
 signal enemy_death(enemy)
 var initial_position = null
 
+func heal():
+	life = 125
+
 func _ready():
 	initial_position = global_position
 

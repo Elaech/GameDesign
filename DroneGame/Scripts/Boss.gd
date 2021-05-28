@@ -4,14 +4,16 @@ signal boss_death(boss)
 signal boss_chunked
 
 var disk_rotation_speed
-var disk_rev_rotation_speed = -0.5
-var disk_norm_rotation_speed = 0.1
+var disk_rev_rotation_speed = -0.25
+var disk_norm_rotation_speed = 0.07
 var spin_time = 3
 var spin_back_time = 2
 var speed_multi = 1
-var next_target_life = 9
-var chunk = 1
-var life = 10
+
+var next_target_life = 9000
+var chunk = 1000
+var life = 10000
+var max_life = 10000
 
 func _ready():
 	$RotationTimer.start(spin_time)

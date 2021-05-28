@@ -13,6 +13,9 @@ var initial_position = null
 var life = 200
 var damage = 300
 
+func heal():
+	life = 200
+
 func despawn(poz):
 	visible = false
 	global_position = poz

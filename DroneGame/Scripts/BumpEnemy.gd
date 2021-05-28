@@ -24,7 +24,9 @@ func _ready():
 	rng.randomize()
 	initial_position = global_position
 	
-	
+func heal():
+	life = 100
+
 func _process(_delta):
 	if player_detected and player!=null:
 		if timer.is_stopped():
