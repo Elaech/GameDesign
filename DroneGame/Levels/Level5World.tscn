@@ -170,7 +170,6 @@ width = 16.0
 [node name="LaserPlant2" parent="Pause/Enemies0" instance=ExtResource( 18 )]
 position = Vector2( 491.843, 63.5219 )
 rotation = -0.977384
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 1.0
 fire_rate = 2.0
@@ -180,7 +179,6 @@ width = 20.0
 [node name="LaserPlant3" parent="Pause/Enemies0" instance=ExtResource( 18 )]
 position = Vector2( 232.891, 113.645 )
 rotation = 1.0472
-scale = Vector2( 1, 1 )
 animation_speed = 5.0
 initial_delay = 1.0
 fire_rate = 0.5
@@ -189,7 +187,6 @@ width = 6.0
 
 [node name="LaserPlant5" parent="Pause/Enemies0" instance=ExtResource( 18 )]
 position = Vector2( 369.507, 244.452 )
-scale = Vector2( 1, 1 )
 animation_speed = 2.0
 initial_delay = 1.0
 width = 30.0
@@ -221,17 +218,14 @@ position = Vector2( 628.286, 234.007 )
 [node name="ShooterEnemy3" parent="Pause/Enemies1" instance=ExtResource( 15 )]
 position = Vector2( 497.595, 238.229 )
 rotation = 0.785398
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy4" parent="Pause/Enemies1" instance=ExtResource( 15 )]
 position = Vector2( 811.633, 114.69 )
 rotation = -1.5708
-scale = Vector2( 1, 1 )
 
 [node name="LaserPlant6" parent="Pause/Enemies1" instance=ExtResource( 18 )]
 position = Vector2( 807.116, 160.337 )
 rotation = -1.04545
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 0.8
 fire_rate = 1.0
@@ -241,7 +235,6 @@ width = 14.0
 [node name="LaserPlant10" parent="Pause/Enemies1" instance=ExtResource( 18 )]
 position = Vector2( 848.774, 73.6836 )
 rotation = -1.36485
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 1.0
 fire_rate = 1.0
@@ -251,7 +244,6 @@ width = 20.0
 [node name="LaserPlant7" parent="Pause/Enemies1" instance=ExtResource( 18 )]
 position = Vector2( 701.243, 211.593 )
 rotation = -0.642281
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 0.6
 fire_rate = 1.0
@@ -261,7 +253,6 @@ width = 8.0
 [node name="LaserPlant8" parent="Pause/Enemies1" instance=ExtResource( 18 )]
 position = Vector2( 563.461, 281.926 )
 rotation = -0.0418879
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 0.4
 fire_rate = 1.0
@@ -271,7 +262,6 @@ width = 14.0
 [node name="LaserPlant9" parent="Pause/Enemies1" instance=ExtResource( 18 )]
 position = Vector2( 413.095, 282.2 )
 rotation = 0.513127
-scale = Vector2( 1, 1 )
 animation_speed = 3.0
 initial_delay = 0.2
 fire_rate = 1.0
@@ -283,34 +273,27 @@ width = 20.0
 [node name="ShooterEnemy10" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 552.726, -162.711 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy11" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 643.102, -75.4732 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy12" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 692.349, -210.881 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy13" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 600.539, -235.176 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy14" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 552.952, -196.776 )
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy15" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 751.485, -141.286 )
-scale = Vector2( 1, 1 )
 
 [node name="ShooterEnemy16" parent="Pause/Enemies2" instance=ExtResource( 15 )]
 position = Vector2( 721.213, -37.7281 )
-scale = Vector2( 1, 1 )
 
 [node name="Bumper6" parent="Pause/Enemies2" instance=ExtResource( 16 )]
 position = Vector2( 708.737, -52.5596 )

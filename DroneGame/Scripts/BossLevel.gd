@@ -54,6 +54,7 @@ func _ready():
 	rng.seed = OS.get_unix_time()
 	save_player_data()
 	initial_despawn()
+	print($Pause/Resources.get_children().size())
 
 
 func initial_despawn():
@@ -240,7 +241,7 @@ func delete_resource(number):
 
 
 func despawn_resource(resource):
-	resource.visible = false
+	resource.queue_free()
 
 
 func _on_Player_player_dies():
@@ -278,6 +279,7 @@ func _on_Boss_boss_death(boss):
 	$Pause/Boss.queue_free()
 	for cc in $Pause/Resources.get_children():
 		evoke(cc)
+		cc.visible = true
 	for enemy in $Pause/Enemies.get_children():
 		enemy.emit_signal("enemy_death",enemy)
 		enemy.queue_free()
@@ -287,7 +289,7 @@ func _on_Boss_boss_death(boss):
 		despawn(enemy)
 	for enemy in $Pause/Enemies2.get_children():
 		despawn(enemy)
-	evoke($Pause/Portal/portal)
+	evoke($Pause/Portal)
 
 
 func _on_Boss_boss_chunked():
