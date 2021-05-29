@@ -104,6 +104,8 @@ script = ExtResource( 10 )
 [node name="Portal" parent="Pause" instance=ExtResource( 13 )]
 position = Vector2( 1228.71, 367.958 )
 
+[node name="Enemies" type="Node2D" parent="Pause"]
+
 [node name="PauseMenu" parent="." instance=ExtResource( 12 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="resource_captured" from="Pause/Resources/CursedChip" to="." method="_on_CursedChip_resource_captured"]
