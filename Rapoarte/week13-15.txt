@@ -1,0 +1,21 @@
+Common:
+Sound Review
+Sound Decision Making
+
+Minut Mihai:
+Sistem Respawn Inamici Boss
+Black Hole System
+Boss Design
+Boss Implementation
+Boss level script
+Level 5 - Boss Arena finished
+Tested Timings for phases lvl 5 and 3
+Solved buggs for: LaserPlant, Bee and TowerShooter
+Implementat sunete
+
+
+Cretu Bogdan
+Creat sunete fundal
+Level 4 finished
+Tested lvl 4
+Creat sunete drona 

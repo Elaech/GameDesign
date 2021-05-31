@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Textures/MenuDrone.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=4]
 [ext_resource path="res://Textures/MenuTitleDesignBar.png" type="Texture" id=5]
 [ext_resource path="res://Textures/Resource-Sheet.png" type="Texture" id=6]
+[ext_resource path="res://Sound/BGMusic.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 9
@@ -328,7 +329,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CursedChips"]
 position = Vector2( 327.872, 92.4901 )
 frames = SubResource( 16 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CursedChips"]
@@ -351,6 +352,9 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 189.084, 93.3527 )
 [connection signal="button_up" from="Buttons/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="Buttons/LevelsButton" to="." method="_on_LevelsButton_button_up"]
 [connection signal="button_up" from="Buttons/UpgradesButton" to="." method="_on_UpgradesButton_button_up"]
