@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PEW.wav-6a0bf8a4cbfda23d170fb1107a21f089.sample"
+
+[deps]
+
+source_file="res://Sounds_/PEW.wav"
+dest_files=[ "res://.import/PEW.wav-6a0bf8a4cbfda23d170fb1107a21f089.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
