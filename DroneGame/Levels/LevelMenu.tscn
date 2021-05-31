@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Textures/MenuTile.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/LevelMenu.gd" type="Script" id=3]
+[ext_resource path="res://Sound/BGMusic.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -200,6 +201,9 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 175.507, 91.7627 )
 [connection signal="button_up" from="LevelButtons/1" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="LevelButtons/2" to="." method="_on_Button2_button_up"]
 [connection signal="button_up" from="LevelButtons/3" to="." method="_on_Button3_button_up"]

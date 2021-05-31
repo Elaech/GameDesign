@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Options.gd" type="Script" id=1]
 [ext_resource path="res://Textures/MenuTile.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://Sound/BGMusic.tscn" type="PackedScene" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -53,7 +54,7 @@ margin_top = 150.0
 margin_right = 63.0
 margin_bottom = 177.0
 mouse_default_cursor_shape = 2
-custom_styles/focus = SubResource( 2 )
+custom_styles/focus = SubResource( 1 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,7 +67,7 @@ margin_right = 56.0
 margin_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0.756863, 1, 1 )
 text = "Back"
 align = 1
@@ -82,7 +83,7 @@ margin_top = 147.0
 margin_right = 353.0
 margin_bottom = 176.0
 mouse_default_cursor_shape = 2
-custom_styles/focus = SubResource( 2 )
+custom_styles/focus = SubResource( 1 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,7 +96,7 @@ margin_right = 65.0
 margin_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0.756863, 1, 1 )
 text = "Reset"
 align = 1
@@ -451,6 +452,9 @@ custom_colors/font_color_shadow = Color( 0.831373, 0.439216, 0, 1 )
 text = "@"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 179, 89 )
 [connection signal="button_up" from="Back/BackButton" to="." method="_on_BackButton_button_up"]
 [connection signal="button_up" from="Reset/ResetButton" to="." method="new_player_control_data"]
 [connection signal="button_up" from="RemapInputs/Movement/CannonUP" to="." method="_on_CannonUP_button_up"]

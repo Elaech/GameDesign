@@ -88,8 +88,20 @@ func shoot_cannonball():
 	cannonball_instance.cannonball_speed = cannonball_speed
 	cannonball_instance.position = self.position - propulsion_direction * 5
 	self.get_parent().add_child(cannonball_instance)
+	play_sound()
 	cannonball_instance.change_look(cannon_mode)
 	
+
+func play_sound():
+	match cannon_mode:
+		1:
+			$Sounds/SmallAttackSound.play()
+			
+		2:
+			$Sounds/MediumAttackSound.play()
+			
+		3:
+			$Sounds/HeavyAttackSound.play()
 	
 func _on_Timer_timeout():
 	shoot_cannon()
