@@ -115,7 +115,7 @@ custom_colors/font_color_shadow = Color( 0.415686, 0, 0.388235, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Built with Godot3
-version 0.0.2"
+version 1.0.0"
 align = 2
 valign = 2
 __meta__ = {

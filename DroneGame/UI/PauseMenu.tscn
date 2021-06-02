@@ -5,42 +5,42 @@
 [ext_resource path="res://Textures/Resource-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=4]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 120, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -70,8 +70,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CursedChips"]
 position = Vector2( 161.253, -73.4991 )
-frames = SubResource( 9 )
-frame = 5
+frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CursedChips"]
@@ -89,7 +89,7 @@ __meta__ = {
 margin_left = 80.0
 margin_right = 92.0
 margin_bottom = 22.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0.858824, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -118,7 +118,7 @@ margin_bottom = -19.0791
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-custom_styles/focus = SubResource( 2 )
+custom_styles/focus = SubResource( 9 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,7 +129,7 @@ margin_left = 2.49831
 margin_top = 4.49492
 margin_right = 44.4983
 margin_bottom = 26.4949
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0.858824, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -147,7 +147,7 @@ margin_top = -80.0
 margin_right = -87.0
 margin_bottom = -51.0
 mouse_default_cursor_shape = 2
-custom_styles/focus = SubResource( 2 )
+custom_styles/focus = SubResource( 9 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -158,7 +158,7 @@ margin_left = 1.88774
 margin_top = 3.43874
 margin_right = 84.8877
 margin_bottom = 31.4387
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0.858824, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -168,5 +168,65 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Kill Sound" type="Button" parent="Buttons"]
+pause_mode = 2
+margin_left = 62.3983
+margin_top = -48.1237
+margin_right = 173.398
+margin_bottom = -19.1237
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Kill Sound"]
+margin_left = 8.71866
+margin_top = 6.36951
+margin_right = 104.719
+margin_bottom = 28.3695
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0.858824, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "BG Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kill Sound2" type="Button" parent="Buttons"]
+pause_mode = 2
+margin_left = 62.1474
+margin_top = -80.3746
+margin_right = 179.147
+margin_bottom = -51.3746
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Kill Sound2"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 73.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0.858824, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "ATK Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Buttons/Exit" to="." method="_on_Exit_button_up"]
 [connection signal="button_up" from="Buttons/Resume" to="." method="_on_Resume_button_up"]
+[connection signal="button_up" from="Buttons/Kill Sound" to="." method="_on_Kill_Sound_button_up"]
+[connection signal="button_up" from="Buttons/Kill Sound2" to="." method="_on_Kill_Sound2_button_up"]

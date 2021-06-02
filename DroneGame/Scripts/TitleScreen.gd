@@ -14,7 +14,7 @@ const SAVE_VERSION = "version"
 # do not change current version 
 # unless you want the save data of players to be deleted
 # the need of this is in case we revert back and must make save data changes
-const CURRENT_VERSION = 3
+const CURRENT_VERSION = 101
 var control_data
 var player_data
 onready var counter = get_node("CursedChips/HBoxContainer/Counter")
@@ -24,8 +24,6 @@ onready var pause_menu = null
 func _ready():
 	load_player_data()
 	load_player_control_data()
-	apply_player_control_data()
-	print(player_data)
 	counter.text = str(player_data["CC"])
 	if(player_data[CURRENT_LEVEL] != null):
 		if(player_data[CURRENT_CHECKPOINT] != null):
@@ -78,10 +76,11 @@ func load_player_data():
 		file.close()
 	if player_data[SAVE_VERSION] < CURRENT_VERSION:
 		new_player_data()
+	save_player_data()
 	
 func new_player_data():
 	player_data = {
-		"CC" : 10000,
+		"CC" : 9999,
 		"unlocked_levels" : [1,2,3,4,5],
 		"max_health" : 500,
 		"damage_upgrade": 0,

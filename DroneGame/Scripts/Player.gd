@@ -22,6 +22,7 @@ var cannon_active = false
 var cannon_damage = 10
 var cannon_mode = 2
 var cannonball_speed = 80
+var atk_sound = true
 var last_damaging_areas = []
 const CANNONBALL_RESOURCE =preload("res://WorldObjects/Cannonball.tscn")
 onready var cannon_timer = get_node("CannonTimer")
@@ -88,7 +89,8 @@ func shoot_cannonball():
 	cannonball_instance.cannonball_speed = cannonball_speed
 	cannonball_instance.position = self.position - propulsion_direction * 5
 	self.get_parent().add_child(cannonball_instance)
-	play_sound()
+	if atk_sound == true:
+		play_sound()
 	cannonball_instance.change_look(cannon_mode)
 	
 
@@ -241,3 +243,15 @@ func _on_HurtboxTimer_timeout():
 			take_damage(area.get_damage())
 			return
 	last_damaging_areas.clear()
+
+func stop_bg_sound():
+	$Sounds/AudioStreamPlayer2D.stop()
+
+func stop_shoot_sound():
+	atk_sound = false
+	
+func start_shoot_sound():
+	atk_sound = true
+
+func start_bg_sound():
+	$Sounds/AudioStreamPlayer2D.play()
